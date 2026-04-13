@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nishanth Sundaran - M.Engg. AI Graduate | Collaborative Robotics & Human-Robot Interaction | ROS 2, MoveIt 2, Computer Vision, ISO/TS 15066">
+    <meta name="keywords" content="Nishanth Sundaran, Robotics Engineer, AI Engineer, ROS 2, MoveIt 2, Human-Robot Interaction, Computer Vision, ISO/TS 15066, UR3e, collaborative robotics, Germany">
+    <title>Nishanth Sundaran | Robotics &amp; AI Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --purple: #6B3FA0;
+            --purple-light: #8B5FBF;
+            --purple-dark: #4A2B70;
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --bg-card-hover: #222240;
+            --text-primary: #f0f0f5;
+            --text-secondary: #a0a0b8;
+            --text-muted: #6a6a80;
+            --accent: #6B3FA0;
+            --gradient: linear-gradient(135deg, #6B3FA0, #4A2B70);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* --- NAV --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 15, 26, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(107, 63, 160, 0.2);
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--purple-light);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-light);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-secondary);
+            transition: 0.3s;
+        }
+
+        /* --- SECTIONS --- */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+        }
+
+        .purple-bar {
+            width: 50px;
+            height: 3px;
+            background: var(--purple);
+            margin-bottom: 1rem;
+            border-radius: 2px;
+        }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 60px;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text .greeting {
+            color: var(--purple-light);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h1 span {
+            background: linear-gradient(135deg, #6B3FA0, #a06fd8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text .tagline {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            max-width: 520px;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-tags .tag {
+            background: rgba(107, 63, 160, 0.2);
+            border: 1px solid rgba(107, 63, 160, 0.4);
+            color: var(--purple-light);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(107, 63, 160, 0.35);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(107, 63, 160, 0.5);
+            color: var(--purple-light);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(107, 63, 160, 0.15);
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--purple);
+            box-shadow: 0 0 40px rgba(107, 63, 160, 0.3);
+        }
+
+        /* --- ABOUT --- */
+        #about {
+            background: var(--bg-card);
+            border-radius: 16px;
+            margin-top: -2rem;
+            padding: 3rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(107, 63, 160, 0.3);
+        }
+
+        .about-image figcaption {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        /* --- EXPERIENCE --- */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--purple), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--purple);
+            border: 3px solid var(--bg-dark);
+        }
+
+        .timeline-item .date {
+            color: var(--purple-light);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+
+        .timeline-item .company {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .timeline-item ul li {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            padding: 0.2rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .timeline-item ul li::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.55rem;
+            color: var(--purple-light);
+            position: absolute;
+            left: 0;
+            top: 0.45rem;
+        }
+
+        .timeline-item .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+        }
+
+        .timeline-item .tech-tags span {
+            background: rgba(107, 63, 160, 0.15);
+            color: var(--purple-light);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(107, 63, 160, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--purple);
+        }
+
+        .project-card .project-type {
+            color: var(--purple-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .project-card .tech-tags span {
+            background: rgba(107, 63, 160, 0.12);
+            color: var(--purple-light);
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+
+        /* --- SKILLS --- */
+        .skills-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(107, 63, 160, 0.1);
+        }
+
+        .skill-category h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--purple-light);
+        }
+
+        .skill-category .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-category .skill-items span {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-secondary);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .skill-category .skill-items span:hover {
+            background: rgba(107, 63, 160, 0.2);
+            color: var(--purple-light);
+            border-color: rgba(107, 63, 160, 0.4);
+        }
+
+        /* --- EDUCATION --- */
+        .education-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .edu-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.75rem;
+            border: 1px solid rgba(107, 63, 160, 0.1);
+        }
+
+        .edu-card .degree {
+            color: var(--purple-light);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .edu-card .institution {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .edu-card .thesis {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            padding-left: 0.75rem;
+            border-left: 2px solid var(--purple);
+        }
+
+        .edu-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- CONTACT --- */
+        #contact {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--purple-light);
+            transform: translateY(-3px);
+        }
+
+        .contact-link i {
+            font-size: 1.8rem;
+            color: var(--purple-light);
+        }
+
+        .contact-link span {
+            font-size: 0.85rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(107, 63, 160, 0.1);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(15, 15, 26, 0.98);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .contact-links {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-container">
+        <a href="#" class="nav-logo">NS.</a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <p class="greeting">Hello, I'm</p>
+            <h1>Nishanth<br><span>Sundaran</span></h1>
+            <p class="tagline">I build safe, intelligent robotic systems that work alongside people. M.Engg. AI Graduate specialising in collaborative robotics, real-time control, and deep learning.</p>
+            <div class="hero-tags">
+                <span class="tag">ROS 2</span>
+                <span class="tag">MoveIt 2</span>
+                <span class="tag">ISO/TS 15066</span>
+                <span class="tag">YOLOv8</span>
+                <span class="tag">Python</span>
+                <span class="tag">Computer Vision</span>
+                <span class="tag">Admittance Control</span>
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Get in Touch</a>
+                <a href="https://www.linkedin.com/in/nishanthsundaran" target="_blank" class="btn-secondary"><i class="fab fa-linkedin"></i>&nbsp; LinkedIn</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/profile.jpeg" alt="Nishanth Sundaran">
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+    <div id="about">
+        <div class="purple-bar"></div>
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Master's Thesis Researcher at Technische Hochschule Deggendorf</p>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>As my Master's thesis at Technische Hochschule Deggendorf, I designed and implemented a complete human-robot interaction framework on a UR3e collaborative robot &mdash; from force control to computer vision to safety compliance.</p>
+                <p>The system features a hybrid position-admittance controller for real-time force-guided collaboration, an ISO/TS 15066-compliant safety architecture with Speed &amp; Separation Monitoring, Power &amp; Force Limiting, and Hand Guiding modes, and a YOLOv8-based human detection pipeline using an Intel RealSense D435i depth camera in an eye-to-hand configuration.</p>
+                <p>A 13-state finite state machine orchestrates assistive lift-and-place tasks, combining autonomous grasping with human-guided object placement via real-time force feedback &mdash; all integrated in ROS 2 Humble with MoveIt 2, MoveIt Servo, Gazebo, and a Robotiq 2F-140 gripper.</p>
+                <p>Previously, I applied computer vision and ML to renewable energy monitoring at Energy Future World (85% detection accuracy on aerial imagery), and gained industrial experience at M&uuml;hlbauer Group, Amazon, and Power And Instrumentations Ltd.</p>
+            </div>
+            <div class="about-image">
+                <figure>
+                    <img src="images/lab_setup.jpeg" alt="UR3e collaborative robot workspace">
+                    <figcaption>UR3e workspace with Robotiq 2F-140 gripper and Intel RealSense D435i</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <div class="purple-bar"></div>
+    <h2 class="section-title">Experience</h2>
+    <p class="section-subtitle">Professional journey from power engineering to collaborative robotics</p>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <span class="date">Sep 2025 &ndash; Mar 2026</span>
+            <h3>Master's Thesis Researcher</h3>
+            <p class="company">Technische Hochschule Deggendorf (THD) &mdash; Cham, Germany</p>
+            <ul>
+                <li>Developed a real-time hybrid position-admittance controller for safe physical human-robot interaction on a UR3e collaborative robot using ROS 2 and MoveIt 2</li>
+                <li>Designed and implemented an ISO/TS 15066-compliant safety system with three operational modes: Speed &amp; Separation Monitoring, Power &amp; Force Limiting, and Hand Guiding</li>
+                <li>Built a computer vision pipeline with Intel RealSense D435i for YOLOv8-based human detection, hand-eye calibration, and HSV-based object localisation with depth back-projection</li>
+                <li>Created a 13-state FSM for assistive lift-and-place tasks integrating autonomous grasping with human-guided placement via real-time force feedback</li>
+            </ul>
+            <div class="tech-tags">
+                <span>ROS 2</span><span>MoveIt 2</span><span>Python</span><span>OpenCV</span><span>YOLOv8</span><span>Intel RealSense</span><span>Gazebo</span><span>tf2</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <span class="date">Dec 2023 &ndash; Nov 2024</span>
+            <h3>Machine Learning Intern</h3>
+            <p class="company">Energy Future World &mdash; London, United Kingdom (Remote)</p>
+            <ul>
+                <li>Applied computer vision to aerial imagery for tracking renewable energy infrastructure growth, achieving 85% detection accuracy</li>
+                <li>Developed image processing algorithms (edge detection, contrast enhancement) using OpenCV</li>
+                <li>Conducted pattern analysis and model training using Scikit-learn, NumPy, and Pandas</li>
+            </ul>
+            <div class="tech-tags">
+                <span>Python</span><span>OpenCV</span><span>Scikit-learn</span><span>NumPy</span><span>Pandas</span><span>Jupyter</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <span class="date">Aug 2023 &ndash; Dec 2023</span>
+            <h3>Working Student</h3>
+            <p class="company">M&uuml;hlbauer Group &mdash; Roding, Bavaria, Germany</p>
+            <ul>
+                <li>Supported automation and production processes in a high-tech manufacturing environment</li>
+                <li>Gained hands-on experience with industrial robotics and production line optimisation</li>
+            </ul>
+            <div class="tech-tags">
+                <span>PLC</span><span>Industrial Automation</span>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <span class="date">Mar 2022 &ndash; Dec 2022</span>
+            <h3>Process Associate</h3>
+            <p class="company">Amazon &mdash; Bangalore, India</p>
+            <ul>
+                <li>Performed data analysis and auditing to identify process performance trends</li>
+                <li>Contributed to automation and system optimisation initiatives using data-driven forecasting</li>
+            </ul>
+        </div>
+
+        <div class="timeline-item">
+            <span class="date">May 2019 &ndash; Dec 2021</span>
+            <h3>Project Engineer</h3>
+            <p class="company">Power And Instrumentations Ltd &mdash; Gujarat, India</p>
+            <ul>
+                <li>Analysed high-voltage power grid performance data to optimise reliability and identify failure patterns</li>
+                <li>Managed cost tracking, quality control, and resource allocation across multiple project sites</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <div class="purple-bar"></div>
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Academic and personal projects spanning robotics, AI, and computer vision</p>
+
+    <div class="projects-grid">
+        <div class="project-card">
+            <span class="project-type">Master's Thesis</span>
+            <h3>Human-Robot Interaction with Force Feedback in Collaborative Tasks</h3>
+            <p>Complete HRI framework on a UR3e cobot: hybrid admittance control, ISO/TS 15066 safety (SSM, PFL, Hand Guiding), YOLOv8 human detection with Intel RealSense D435i, and a 13-state FSM for assistive manipulation.</p>
+            <div class="tech-tags">
+                <span>ROS 2</span><span>MoveIt 2</span><span>YOLOv8</span><span>Python</span><span>Gazebo</span><span>ISO/TS 15066</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Bachelor's Thesis</span>
+            <h3>Implementation of MPPT on PV Cell Using Incremental Conductance Method</h3>
+            <p>Modelled a 150W PV module in MATLAB/Simulink, implemented the Incremental Conductance MPPT algorithm with a SEPIC DC-DC converter. Achieved 97%+ MPP tracking accuracy, outperforming Perturb &amp; Observe under varying irradiance.</p>
+            <div class="tech-tags">
+                <span>MATLAB</span><span>Simulink</span><span>Simscape</span><span>Power Electronics</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Group Case Study</span>
+            <h3>Autonomous Mobile Robot with SLAM Navigation</h3>
+            <p>Designed and simulated a four-wheeled mobile robot in SolidWorks and ROS with SLAM-based autonomous navigation, obstacle avoidance, and goal-reaching capabilities in cluttered environments.</p>
+            <div class="tech-tags">
+                <span>ROS</span><span>SLAM</span><span>SolidWorks</span><span>Navigation</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Group Case Study</span>
+            <h3>Air Quality Index Prediction and Decision Making Tool</h3>
+            <p>Built an ML model using ARIMA/SARIMA time series techniques for multi-city air quality prediction, achieving 93%+ accuracy with a two-step visual pattern analysis process.</p>
+            <div class="tech-tags">
+                <span>Python</span><span>ARIMA</span><span>SARIMA</span><span>Pandas</span><span>Scikit-learn</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Self Study</span>
+            <h3>Object Detection Using YOLO with Audio Alert</h3>
+            <p>Integrated YOLOv8 with Google text-to-speech (gTTS) and a real-time GUI for enhancing accessibility for visually impaired users with audio feedback of detected objects.</p>
+            <div class="tech-tags">
+                <span>YOLOv8</span><span>gTTS</span><span>Python</span><span>GUI</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Self Study</span>
+            <h3>Contour Detection Using Computer Vision</h3>
+            <p>Built a contour detection system for object boundary extraction, enhancing object recognition, image segmentation, and shape analysis applications using OpenCV.</p>
+            <div class="tech-tags">
+                <span>OpenCV</span><span>Python</span><span>Image Processing</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <div class="purple-bar"></div>
+    <h2 class="section-title">Technical Skills</h2>
+    <p class="section-subtitle">Tools and technologies I work with</p>
+
+    <div class="skills-categories">
+        <div class="skill-category">
+            <h3><i class="fas fa-code"></i>&nbsp; Programming &amp; Tools</h3>
+            <div class="skill-items">
+                <span>Python</span><span>C/C++</span><span>Git</span><span>Linux</span><span>VS Code</span><span>Jupyter</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3><i class="fas fa-robot"></i>&nbsp; Robotics &amp; Control</h3>
+            <div class="skill-items">
+                <span>ROS 2</span><span>MoveIt 2</span><span>MoveIt Servo</span><span>Admittance Control</span><span>OMPL</span><span>Pilz</span><span>SLAM</span><span>Gazebo</span><span>URDF/Xacro</span><span>tf2</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3><i class="fas fa-brain"></i>&nbsp; AI &amp; Machine Learning</h3>
+            <div class="skill-items">
+                <span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>Deep Learning</span><span>Reinforcement Learning</span><span>ARIMA</span><span>SARIMA</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3><i class="fas fa-eye"></i>&nbsp; Computer Vision &amp; Sensors</h3>
+            <div class="skill-items">
+                <span>OpenCV</span><span>YOLOv8</span><span>Intel RealSense D435i</span><span>Depth Estimation</span><span>HSV Segmentation</span><span>Hand-Eye Calibration</span><span>Point Clouds</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3><i class="fas fa-shield-alt"></i>&nbsp; Safety &amp; Standards</h3>
+            <div class="skill-items">
+                <span>ISO/TS 15066</span><span>SSM</span><span>PFL</span><span>Hand Guiding</span><span>Risk Assessment</span><span>Functional Safety</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+            <h3><i class="fas fa-chart-bar"></i>&nbsp; Data &amp; Analysis</h3>
+            <div class="skill-items">
+                <span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>MATLAB</span><span>Simulink</span><span>Feature Engineering</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <div class="purple-bar"></div>
+    <h2 class="section-title">Education</h2>
+    <p class="section-subtitle">Academic background in AI and electrical engineering</p>
+
+    <div class="education-cards">
+        <div class="edu-card">
+            <span class="degree">Master of Engineering</span>
+            <h3>Artificial Intelligence for Smart Sensors and Actuators</h3>
+            <p class="institution">Technische Hochschule Deggendorf (DIT) &mdash; Cham, Germany &bull; 2022 &ndash; 2026</p>
+            <div class="thesis">"Human-Robot Interaction with Force Feedback in Collaborative Tasks"</div>
+            <p>Specialisation: Machine Learning, Deep Learning, Computer Vision, Autonomous Systems, IoT, Robotics</p>
+        </div>
+
+        <div class="edu-card">
+            <span class="degree">Bachelor of Engineering</span>
+            <h3>Electrical and Electronics Engineering</h3>
+            <p class="institution">University of Calicut &mdash; Kerala, India</p>
+            <div class="thesis">"Implementation of MPPT on PV Cell Using Incremental Conductance Method"</div>
+            <p>Specialisation: Digital Signal Processing, Digital System Design, Power Electronics, IoT</p>
+        </div>
+    </div>
+</section>
+
+<!-- LANGUAGES -->
+<section>
+    <div class="purple-bar"></div>
+    <h2 class="section-title">Languages</h2>
+    <div style="display:flex; gap:2rem; flex-wrap:wrap; margin-top:1rem;">
+        <div style="text-align:center;">
+            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">English</div>
+            <div style="color:var(--text-muted); font-size:0.85rem;">Fluent</div>
+        </div>
+        <div style="text-align:center;">
+            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">German</div>
+            <div style="color:var(--text-muted); font-size:0.85rem;">A2</div>
+        </div>
+        <div style="text-align:center;">
+            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">Malayalam</div>
+            <div style="color:var(--text-muted); font-size:0.85rem;">Native</div>
+        </div>
+        <div style="text-align:center;">
+            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">Tamil</div>
+            <div style="color:var(--text-muted); font-size:0.85rem;">Fluent</div>
+        </div>
+        <div style="text-align:center;">
+            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">Hindi</div>
+            <div style="color:var(--text-muted); font-size:0.85rem;">Fluent</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="purple-bar" style="margin:0 auto;"></div>
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-subtitle">Open to robotics, AI/ML, and automation engineering roles in Germany</p>
+
+    <div class="contact-links">
+        <a href="mailto:sundharnishanth@gmail.com" class="contact-link">
+            <i class="fas fa-envelope"></i>
+            <span>sundharnishanth@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/nishanthsundaran" target="_blank" class="contact-link">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+        </a>
+        <a href="tel:+4915156496524" class="contact-link">
+            <i class="fas fa-phone"></i>
+            <span>+49 151 5649 6524</span>
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 Nishanth Sundaran. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
