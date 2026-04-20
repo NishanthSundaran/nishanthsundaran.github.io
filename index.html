@@ -870,10 +870,23 @@
 
         <div class="project-card">
             <span class="project-type">Group Case Study</span>
-            <h3>Air Quality Index Prediction and Decision Making Tool</h3>
-            <p>Built an ML model using ARIMA/SARIMA time series techniques for multi-city air quality prediction, achieving 93%+ accuracy with a two-step visual pattern analysis process.</p>
+            <h3>Air Quality Index Prediction &amp; Forecasting — Chennai</h3>
+            <p>Seven independent <strong>SARIMA</strong> models (PM2.5, PM10, NO<sub>2</sub>, SO<sub>2</sub>, O<sub>3</sub>, CO, and overall AQI) trained on the Kaggle <em>Air Quality in India</em> dataset, feeding monthly pollutant forecasts into the <strong>Indian CPCB sub-index formula</strong> <code>I = ((I<sub>HI</sub>−I<sub>LO</sub>)/(BP<sub>HI</sub>−BP<sub>LO</sub>))(C<sub>p</sub>−BP<sub>LO</sub>) + I<sub>LO</sub></code>. Overall AQI = max sub-index across pollutants, with a colour-coded six-category severity banner and health advice. The original Tkinter windows were rewritten as a single <strong>Streamlit web app</strong> with a forecast-by-month tab and a live AQI calculator tab (dominant-pollutant readout, CSV export, expandable CPCB breakpoint reference).</p>
+            <div class="pipeline-gallery">
+                <figure>
+                    <img src="images/aqi_forecast.png" alt="Streamlit app showing the forecast tab: date picker, CPCB versus SARIMA AQI metrics side by side, and a per-pollutant forecast table with units" loading="lazy">
+                    <figcaption>Forecast tab — month picker &rarr; SARIMA &rarr; CPCB AQI</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/aqi_calculator.png" alt="Streamlit app showing the calculator tab: six numeric inputs for pollutants, live colour-coded AQI banner, dominant pollutant readout, and a sub-index table" loading="lazy">
+                    <figcaption>Calculator tab — live sub-indices &amp; dominant pollutant</figcaption>
+                </figure>
+            </div>
             <div class="tech-tags">
-                <span>Python</span><span>ARIMA</span><span>SARIMA</span><span>Pandas</span><span>Scikit-learn</span>
+                <span>Python</span><span>SARIMA</span><span>statsmodels</span><span>Streamlit</span><span>Pandas</span><span>Time-series forecasting</span><span>CPCB India standard</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/NishanthSundaran/AQI_prediction" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
             </div>
         </div>
 
