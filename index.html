@@ -912,6 +912,26 @@
                 <span>OpenCV</span><span>Python</span><span>Sobel</span><span>Canny</span><span>Adaptive Thresholding</span><span>Contour Analysis</span>
             </div>
         </div>
+
+        <div class="project-card">
+            <span class="project-type">Self Study</span>
+            <h3>Point Operations — Brightness, Contrast &amp; Inversion</h3>
+            <p>Implemented the core pixel-wise intensity transforms from first principles: the affine map <code>g(x,y) = &alpha;&middot;f(x,y) + &beta;</code> drives darken, lighten, low-contrast, and high-contrast variants; a bitwise NOT gives the photographic negative; and a weighted RGB&rarr;luminance projection <code>0.3R + 0.6G + 0.1B</code> produces grayscale. All seven outputs — original, darken, lighten, invert, low-contrast, high-contrast, grayscale — are rendered side by side. No library-level helpers beyond the numpy clip and the OpenCV colour-space wrappers.</p>
+            <img src="images/point_ops_result.png" alt="Seven-panel comparison of a sports photograph showing original, darken, lighten, invert, low-contrast, high-contrast, and grayscale variants" class="project-media" loading="lazy">
+            <div class="tech-tags">
+                <span>OpenCV</span><span>NumPy</span><span>Python</span><span>Point Operations</span><span>Image Processing</span>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Self Study</span>
+            <h3>Histogram Equalization from Scratch</h3>
+            <p>Reimplemented global histogram equalization without using <code>cv2.equalizeHist</code>: compute the 256-bin intensity histogram, derive the PDF and then the CDF, and use <code>np.interp</code> to remap every pixel through the CDF &times; 255 lookup. Applied to an under-exposed sunset photograph where most of the intensity mass sits near zero — the equalized output spreads that narrow range across the full 0-255 gamut, pulling foliage texture and cloud structure out of the near-black regions.</p>
+            <img src="images/hist_eq_result.png" alt="Side-by-side comparison of an under-exposed sunset photograph and the same image after manual histogram equalization, showing recovered detail in the sky and foliage" class="project-media" loading="lazy">
+            <div class="tech-tags">
+                <span>NumPy</span><span>Matplotlib</span><span>Python</span><span>Histogram Equalization</span><span>Image Processing</span>
+            </div>
+        </div>
     </div>
 </section>
 
