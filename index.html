@@ -945,6 +945,18 @@
         </div>
 
         <div class="project-card">
+            <span class="project-type">Portfolio Project</span>
+            <h3>Embodied LLM Agent for UR3e Pick-and-Place</h3>
+            <p>A natural-language command becomes a grounded robot plan. A <strong>Claude vision model</strong> reads the RealSense D435i frame and returns a JSON list of objects with pixel centres; depth + camera intrinsics back-project each one into the <code>base_link</code> frame; a <strong>Claude planner</strong> then drives an 8-tool loop (<code>describe_scene</code>, <code>pick</code>, <code>place</code>, <code>move_to</code>, <code>open_gripper</code>, <code>close_gripper</code>, <code>check_safety</code>, <code>home</code>) to execute the instruction on MoveIt 2. Built on top of my thesis's UR3e + Robotiq 2F-140 + D435i Gazebo sim, with a read-only safety gate that reuses the thesis F/T and proximity topics. The point is that the high-level reasoning — "put the red block next to the blue cup" &rarr; grasp pose &rarr; place pose — is synthesised by the LLM over real tool feedback, not a hand-written state machine.</p>
+            <div class="tech-tags">
+                <span>Claude (Anthropic API)</span><span>Tool Use</span><span>VLM</span><span>ROS 2 Humble</span><span>MoveIt 2</span><span>UR3e</span><span>Robotiq 2F-140</span><span>RealSense D435i</span><span>Gazebo</span><span>Python</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/NishanthSundaran/nishanth_embodied_agent" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
             <span class="project-type">Group Case Study</span>
             <h3>Air Quality Index Prediction &amp; Forecasting — Chennai</h3>
             <p>Seven independent <strong>SARIMA</strong> models (PM2.5, PM10, NO<sub>2</sub>, SO<sub>2</sub>, O<sub>3</sub>, CO, and overall AQI) trained on the Kaggle <em>Air Quality in India</em> dataset, feeding monthly pollutant forecasts into the <strong>Indian CPCB sub-index formula</strong> <code>I = ((I<sub>HI</sub>−I<sub>LO</sub>)/(BP<sub>HI</sub>−BP<sub>LO</sub>))(C<sub>p</sub>−BP<sub>LO</sub>) + I<sub>LO</sub></code>. Overall AQI = max sub-index across pollutants, with a colour-coded six-category severity banner and health advice. The original Tkinter windows were rewritten as a single <strong>Streamlit web app</strong> with a forecast-by-month tab and a live AQI calculator tab (dominant-pollutant readout, CSV export, expandable CPCB breakpoint reference).</p>
