@@ -690,12 +690,18 @@
 
         /* ---- Lightbox ---- */
         .project-card .project-media,
-        .project-card .pipeline-gallery img {
+        .project-card .pipeline-gallery img,
+        .project-card img,
+        .hero-image img,
+        .about-image img {
             cursor: zoom-in;
             transition: transform 0.15s ease;
         }
         .project-card .pipeline-gallery img:hover,
-        .project-card img.project-media:hover {
+        .project-card img.project-media:hover,
+        .project-card img:hover,
+        .hero-image img:hover,
+        .about-image img:hover {
             transform: scale(1.01);
         }
 
@@ -1199,7 +1205,7 @@
             document.body.style.overflow = '';
         }
 
-        document.querySelectorAll('.project-card img, .project-card video').forEach((el) => {
+        document.querySelectorAll('.project-card img, .project-card video, .hero-image img, .about-image img').forEach((el) => {
             el.addEventListener('click', (e) => {
                 e.preventDefault();
                 open(el);
