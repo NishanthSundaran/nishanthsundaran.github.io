@@ -426,12 +426,14 @@
             font-weight: 500;
         }
 
-        .project-card img.project-media {
+        .project-card .project-media {
             width: 100%;
             height: auto;
             border-radius: 8px;
             margin-bottom: 0.9rem;
             border: 1px solid rgba(107, 63, 160, 0.2);
+            display: block;
+            background: #000;
         }
 
         .project-card .project-links {
@@ -823,7 +825,7 @@
         <div class="project-card">
             <span class="project-type">Portfolio Project</span>
             <h3>Autonomous Mobile Robot with SLAM &amp; Nav2</h3>
-            <img src="images/slam_nav_bot.png" alt="RViz showing the robot mid-navigation through the warehouse (left) alongside the Gazebo simulation (right) with the LiDAR scan cone visible" class="project-media" loading="lazy">
+            <video class="project-media" src="images/slam_nav_bot_demo.mp4" poster="images/slam_nav_bot.png" autoplay loop muted playsinline preload="metadata" aria-label="Screencast of the robot autonomously navigating the warehouse world in Gazebo with RViz showing the planned path and costmaps"></video>
             <p>Four-wheeled mobile robot with a 2D LiDAR, rebuilt from scratch on ROS 2 Humble as a solo portfolio piece. Runs <strong>slam_toolbox</strong> for online SLAM and a full <strong>Nav2</strong> stack (AMCL, NavFn A*, DWB local planner, behaviour-tree navigator) for autonomous goal-to-pose navigation on the saved map. Verified in a cluttered warehouse: 3/3 goals reached, 0 collisions, 0 recoveries on the final tuning pass.</p>
             <div class="tech-tags">
                 <span>ROS 2 Humble</span><span>Nav2</span><span>slam_toolbox</span><span>Gazebo Classic</span><span>AMCL</span><span>DWB</span><span>URDF/Xacro</span><span>Python Launch</span>
