@@ -687,6 +687,75 @@
                 flex-wrap: wrap;
             }
         }
+
+        /* ---- Lightbox ---- */
+        .project-card .project-media,
+        .project-card .pipeline-gallery img {
+            cursor: zoom-in;
+            transition: transform 0.15s ease;
+        }
+        .project-card .pipeline-gallery img:hover,
+        .project-card img.project-media:hover {
+            transform: scale(1.01);
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 4, 20, 0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 2vmin;
+            cursor: zoom-out;
+            backdrop-filter: blur(6px);
+        }
+        .lightbox.open {
+            display: flex;
+        }
+        .lightbox-content {
+            max-width: 96vw;
+            max-height: 92vh;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(107, 63, 160, 0.4);
+            background: #000;
+        }
+        .lightbox video.lightbox-content {
+            max-height: 92vh;
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 2vmin;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            padding: 0 1rem;
+            pointer-events: none;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 2vmin;
+            right: 2vmin;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            font-size: 1.4rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-close:hover {
+            background: rgba(107, 63, 160, 0.8);
+        }
     </style>
 </head>
 <body>
@@ -1077,6 +1146,74 @@
 <footer>
     <p>&copy; 2026 Nishanth Sundaran. All rights reserved.</p>
 </footer>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged media">
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <div id="lightbox-slot"></div>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+    (function () {
+        const lb = document.getElementById('lightbox');
+        const slot = document.getElementById('lightbox-slot');
+        const caption = document.getElementById('lightbox-caption');
+        const closeBtn = lb.querySelector('.lightbox-close');
+
+        function open(el) {
+            slot.innerHTML = '';
+            let node;
+            if (el.tagName === 'VIDEO') {
+                node = document.createElement('video');
+                node.src = el.currentSrc || el.src;
+                node.controls = true;
+                node.autoplay = true;
+                node.loop = true;
+                node.playsInline = true;
+                node.className = 'lightbox-content';
+            } else {
+                node = document.createElement('img');
+                node.src = el.currentSrc || el.src;
+                node.alt = el.alt || '';
+                node.className = 'lightbox-content';
+            }
+            slot.appendChild(node);
+
+            let cap = el.getAttribute('alt') || '';
+            const fig = el.closest('figure');
+            if (fig) {
+                const fc = fig.querySelector('figcaption');
+                if (fc) cap = fc.textContent.trim();
+            }
+            caption.textContent = cap;
+
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function close() {
+            lb.classList.remove('open');
+            slot.innerHTML = '';
+            caption.textContent = '';
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.project-card img, .project-card video').forEach((el) => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                open(el);
+            });
+        });
+
+        lb.addEventListener('click', (e) => {
+            if (e.target === lb || e.target === closeBtn) close();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lb.classList.contains('open')) close();
+        });
+    })();
+</script>
 
 </body>
 </html>
