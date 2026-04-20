@@ -436,6 +436,39 @@
             background: #000;
         }
 
+        .pipeline-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.7rem;
+            margin: 0 0 0.9rem;
+        }
+
+        .pipeline-gallery figure {
+            margin: 0;
+        }
+
+        .pipeline-gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            border: 1px solid rgba(107, 63, 160, 0.2);
+            background: #fff;
+        }
+
+        .pipeline-gallery figcaption {
+            font-size: 0.78rem;
+            color: #666;
+            margin-top: 0.3rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .pipeline-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .project-card .project-links {
             margin-top: 0.9rem;
             display: flex;
@@ -856,9 +889,27 @@
         <div class="project-card">
             <span class="project-type">Self Study</span>
             <h3>Contour Detection Using Computer Vision</h3>
-            <p>Built a contour detection system for object boundary extraction, enhancing object recognition, image segmentation, and shape analysis applications using OpenCV.</p>
+            <p>Classical OpenCV pipeline that segments individual tablets inside a blister pack and classifies each by whether its horizontal seam edge is visible. Pipeline: Sobel-based edge exploration &rarr; Gaussian blur + adaptive thresholding to get a clean binary mask &rarr; Canny edges on the cropped region &rarr; <code>cv2.findContours</code> with area filtering to isolate tablets &rarr; per-contour horizontal-edge check drives red / green bounding-box classification. Built without any deep learning — the point was to reason about edges, thresholds, and morphology from first principles.</p>
+            <div class="pipeline-gallery">
+                <figure>
+                    <img src="images/contour_01_input.png" alt="Original input: pack of tablets" loading="lazy">
+                    <figcaption>1. Input — tablet pack</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/contour_02_sobel.png" alt="Sobel vertical and horizontal edge filters applied to the grayscale tablet pack" loading="lazy">
+                    <figcaption>2. Sobel — vertical &amp; horizontal edges</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/contour_03_threshold.png" alt="Adaptive threshold, Gaussian blur, and threshold-on-blur outputs side by side" loading="lazy">
+                    <figcaption>3. Preprocess — threshold + blur</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/contour_04_result.png" alt="Final result showing green bounding boxes on tablets with visible horizontal seam edges and red bounding boxes on tablets without" loading="lazy">
+                    <figcaption>4. Result — green = seam edge, red = no seam</figcaption>
+                </figure>
+            </div>
             <div class="tech-tags">
-                <span>OpenCV</span><span>Python</span><span>Image Processing</span>
+                <span>OpenCV</span><span>Python</span><span>Sobel</span><span>Canny</span><span>Adaptive Thresholding</span><span>Contour Analysis</span>
             </div>
         </div>
     </div>
