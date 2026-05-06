@@ -395,6 +395,26 @@
             display: block;
         }
 
+        .project-github-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 1rem;
+            padding: 0.55rem 1.1rem;
+            background: rgba(107, 63, 160, 0.15);
+            border: 1px solid rgba(107, 63, 160, 0.5);
+            color: var(--purple-light);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .project-github-link:hover {
+            background: rgba(107, 63, 160, 0.3);
+            transform: translateY(-2px);
+        }
+
         @media (max-width: 768px) {
             .project-card.featured {
                 grid-template-columns: 1fr;
@@ -945,6 +965,9 @@
                 <div class="tech-tags">
                     <span>ROS 2</span><span>MoveIt 2</span><span>YOLOv8</span><span>Python</span><span>Gazebo</span><span>ISO/TS 15066</span><span>UR3e</span><span>Intel RealSense</span>
                 </div>
+                <a href="https://github.com/NishanthSundaran/Human-Robot-Interaction-with-Force-Feedback-in-Collaborative-Tasks" target="_blank" class="project-github-link">
+                    <i class="fab fa-github"></i>&nbsp; View on GitHub
+                </a>
             </div>
             <video class="project-video" controls preload="metadata" poster="images/lab_setup.jpeg">
                 <source src="videos/thesis_demo.webm" type="video/webm">
