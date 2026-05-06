@@ -377,6 +377,30 @@
             gap: 1.5rem;
         }
 
+        .project-card.featured {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            border-color: rgba(107, 63, 160, 0.4);
+            background: linear-gradient(135deg, var(--bg-card), rgba(107, 63, 160, 0.08));
+        }
+
+        .project-video {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid rgba(107, 63, 160, 0.3);
+            background: #000;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .project-card.featured {
+                grid-template-columns: 1fr;
+            }
+        }
+
         .project-card {
             background: var(--bg-card);
             border: 1px solid rgba(107, 63, 160, 0.15);
@@ -913,13 +937,19 @@
     <p class="section-subtitle">Academic and personal projects spanning robotics, AI, and computer vision</p>
 
     <div class="projects-grid">
-        <div class="project-card">
-            <span class="project-type">Master's Thesis</span>
-            <h3>Human-Robot Interaction with Force Feedback in Collaborative Tasks</h3>
-            <p>Complete HRI framework on a UR3e cobot: hybrid admittance control, ISO/TS 15066 safety (SSM, PFL, Hand Guiding), YOLOv8 human detection with Intel RealSense D435i, and a 13-state FSM for assistive manipulation.</p>
-            <div class="tech-tags">
-                <span>ROS 2</span><span>MoveIt 2</span><span>YOLOv8</span><span>Python</span><span>Gazebo</span><span>ISO/TS 15066</span>
+        <div class="project-card featured">
+            <div>
+                <span class="project-type">Master's Thesis &middot; Demo</span>
+                <h3>Human-Robot Interaction with Force Feedback in Collaborative Tasks</h3>
+                <p>Complete HRI framework on a UR3e cobot: hybrid admittance control, ISO/TS 15066 safety (SSM, PFL, Hand Guiding), YOLOv8 human detection with Intel RealSense D435i, and a 13-state FSM for assistive manipulation.</p>
+                <div class="tech-tags">
+                    <span>ROS 2</span><span>MoveIt 2</span><span>YOLOv8</span><span>Python</span><span>Gazebo</span><span>ISO/TS 15066</span><span>UR3e</span><span>Intel RealSense</span>
+                </div>
             </div>
+            <video class="project-video" controls preload="metadata" poster="images/lab_setup.jpeg">
+                <source src="videos/thesis_demo.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
         <div class="project-card">
