@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nishanth Sundaran - M.Engg. AI Graduate | Collaborative Robotics & Human-Robot Interaction | ROS 2, MoveIt 2, Computer Vision, ISO/TS 15066">
-    <meta name="keywords" content="Nishanth Sundaran, Robotics Engineer, AI Engineer, ROS 2, MoveIt 2, Human-Robot Interaction, Computer Vision, ISO/TS 15066, UR3e, collaborative robotics, Germany">
+    <meta name="description" content="Nishanth Sundaran, M.Eng. AI Graduate. Collaborative robotics, human-robot interaction, ROS 2, MoveIt 2, computer vision, ISO/TS 15066, VLA / VLM, agentic AI.">
+    <meta name="keywords" content="Nishanth Sundaran, Robotics Engineer, AI Engineer, ROS 2, MoveIt 2, Human-Robot Interaction, Computer Vision, ISO/TS 15066, UR3e, collaborative robotics, VLM, VLA, agentic AI, Germany">
     <title>Nishanth Sundaran | Robotics &amp; AI Engineer</title>
+
+    <!-- Open Graph, for LinkedIn / Slack / iMessage / WhatsApp link previews -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nishanth Sundaran">
+    <meta property="og:title" content="Nishanth Sundaran | Robotics & AI Engineer">
+    <meta property="og:description" content="M.Eng. AI graduate. Collaborative robotics, ROS 2 / MoveIt 2, human-robot interaction, computer vision, VLA / agentic AI. Portfolio and projects.">
+    <meta property="og:url" content="https://nishanthsundaran.github.io">
+    <meta property="og:image" content="https://nishanthsundaran.github.io/images/profile.png">
+    <meta property="og:image:alt" content="Portrait of Nishanth Sundaran">
+
+    <!-- Twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nishanth Sundaran | Robotics & AI Engineer">
+    <meta name="twitter:description" content="M.Eng. AI graduate. Collaborative robotics, ROS 2 / MoveIt 2, human-robot interaction, computer vision, VLA / agentic AI.">
+    <meta name="twitter:image" content="https://nishanthsundaran.github.io/images/profile.png">
+    <meta name="twitter:image:alt" content="Portrait of Nishanth Sundaran">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -492,7 +508,8 @@
             margin: 0;
         }
 
-        .pipeline-gallery img {
+        .pipeline-gallery img,
+        .pipeline-gallery video {
             width: 100%;
             height: auto;
             display: block;
@@ -736,15 +753,20 @@
         /* ---- Lightbox ---- */
         .project-card .project-media,
         .project-card .pipeline-gallery img,
+        .project-card .pipeline-gallery video,
         .project-card img,
+        .project-card video,
         .hero-image img,
         .about-image img {
             cursor: zoom-in;
             transition: transform 0.15s ease;
         }
         .project-card .pipeline-gallery img:hover,
+        .project-card .pipeline-gallery video:hover,
         .project-card img.project-media:hover,
+        .project-card video.project-media:hover,
         .project-card img:hover,
+        .project-card video:hover,
         .hero-image img:hover,
         .about-image img:hover {
             transform: scale(1.01);
@@ -821,6 +843,7 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#education">Education</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
@@ -864,9 +887,9 @@
         <p class="section-subtitle">Master's Thesis Researcher at Technische Hochschule Deggendorf</p>
         <div class="about-grid">
             <div class="about-text">
-                <p>As my Master's thesis at Technische Hochschule Deggendorf, I designed and implemented a complete human-robot interaction framework on a UR3e collaborative robot &mdash; from force control to computer vision to safety compliance.</p>
+                <p>As my Master's thesis at Technische Hochschule Deggendorf, I designed and implemented a complete human-robot interaction framework on a UR3e collaborative robot, from force control to computer vision to safety compliance.</p>
                 <p>The system features a hybrid position-admittance controller for real-time force-guided collaboration, an ISO/TS 15066-compliant safety architecture with Speed &amp; Separation Monitoring, Power &amp; Force Limiting, and Hand Guiding modes, and a YOLOv8-based human detection pipeline using an Intel RealSense D435i depth camera in an eye-to-hand configuration.</p>
-                <p>A 13-state finite state machine orchestrates assistive lift-and-place tasks, combining autonomous grasping with human-guided object placement via real-time force feedback &mdash; all integrated in ROS 2 Humble with MoveIt 2, MoveIt Servo, Gazebo, and a Robotiq 2F-140 gripper.</p>
+                <p>A 13-state finite state machine orchestrates assistive lift-and-place tasks, combining autonomous grasping with human-guided object placement via real-time force feedback, all integrated in ROS 2 Humble with MoveIt 2, MoveIt Servo, Gazebo, and a Robotiq 2F-140 gripper.</p>
                 <p>Previously, I applied computer vision and ML to renewable energy monitoring at Energy Future World (85% detection accuracy on aerial imagery), and gained industrial experience at M&uuml;hlbauer Group, Amazon, and Power And Instrumentations Ltd.</p>
             </div>
             <div class="about-image">
@@ -887,9 +910,9 @@
 
     <div class="timeline">
         <div class="timeline-item">
-            <span class="date">Sep 2025 &ndash; Mar 2026</span>
+            <span class="date">Sep 2025 to Mar 2026</span>
             <h3>Master's Thesis Researcher</h3>
-            <p class="company">Technische Hochschule Deggendorf (THD) &mdash; Cham, Germany</p>
+            <p class="company">Technische Hochschule Deggendorf (THD), Cham, Germany</p>
             <ul>
                 <li>Developed a real-time hybrid position-admittance controller for safe physical human-robot interaction on a UR3e collaborative robot using ROS 2 and MoveIt 2</li>
                 <li>Designed and implemented an ISO/TS 15066-compliant safety system with three operational modes: Speed &amp; Separation Monitoring, Power &amp; Force Limiting, and Hand Guiding</li>
@@ -902,9 +925,9 @@
         </div>
 
         <div class="timeline-item">
-            <span class="date">Dec 2023 &ndash; Nov 2024</span>
+            <span class="date">Dec 2023 to Nov 2024</span>
             <h3>Machine Learning Intern</h3>
-            <p class="company">Energy Future World &mdash; London, United Kingdom (Remote)</p>
+            <p class="company">Energy Future World, London, United Kingdom (Remote)</p>
             <ul>
                 <li>Applied computer vision to aerial imagery for tracking renewable energy infrastructure growth, achieving 85% detection accuracy</li>
                 <li>Developed image processing algorithms (edge detection, contrast enhancement) using OpenCV</li>
@@ -916,9 +939,9 @@
         </div>
 
         <div class="timeline-item">
-            <span class="date">Aug 2023 &ndash; Dec 2023</span>
+            <span class="date">Aug 2023 to Dec 2023</span>
             <h3>Working Student</h3>
-            <p class="company">M&uuml;hlbauer Group &mdash; Roding, Bavaria, Germany</p>
+            <p class="company">M&uuml;hlbauer Group, Roding, Bavaria, Germany</p>
             <ul>
                 <li>Supported automation and production processes in a high-tech manufacturing environment</li>
                 <li>Gained hands-on experience with industrial robotics and production line optimisation</li>
@@ -929,9 +952,9 @@
         </div>
 
         <div class="timeline-item">
-            <span class="date">Mar 2022 &ndash; Dec 2022</span>
+            <span class="date">Mar 2022 to Dec 2022</span>
             <h3>Process Associate</h3>
-            <p class="company">Amazon &mdash; Bangalore, India</p>
+            <p class="company">Amazon, Bangalore, India</p>
             <ul>
                 <li>Performed data analysis and auditing to identify process performance trends</li>
                 <li>Contributed to automation and system optimisation initiatives using data-driven forecasting</li>
@@ -939,9 +962,9 @@
         </div>
 
         <div class="timeline-item">
-            <span class="date">May 2019 &ndash; Dec 2021</span>
+            <span class="date">May 2019 to Dec 2021</span>
             <h3>Project Engineer</h3>
-            <p class="company">Power And Instrumentations Ltd &mdash; Gujarat, India</p>
+            <p class="company">Power And Instrumentations Ltd, Gujarat, India</p>
             <ul>
                 <li>Analysed high-voltage power grid performance data to optimise reliability and identify failure patterns</li>
                 <li>Managed cost tracking, quality control, and resource allocation across multiple project sites</li>
@@ -1000,7 +1023,7 @@
         <div class="project-card">
             <span class="project-type">Portfolio Project</span>
             <h3>Embodied LLM Agent for UR3e Pick-and-Place</h3>
-            <p>A natural-language command becomes a grounded robot plan. A <strong>Claude vision model</strong> reads the RealSense D435i frame and returns a JSON list of objects with pixel centres; depth + camera intrinsics back-project each one into the <code>base_link</code> frame; a <strong>Claude planner</strong> then drives an 8-tool loop (<code>describe_scene</code>, <code>pick</code>, <code>place</code>, <code>move_to</code>, <code>open_gripper</code>, <code>close_gripper</code>, <code>check_safety</code>, <code>home</code>) to execute the instruction on MoveIt 2. Built on top of my thesis's UR3e + Robotiq 2F-140 + D435i Gazebo sim, with a read-only safety gate that reuses the thesis F/T and proximity topics. The point is that the high-level reasoning — "put the red block next to the blue cup" &rarr; grasp pose &rarr; place pose — is synthesised by the LLM over real tool feedback, not a hand-written state machine.</p>
+            <p>A natural-language command becomes a grounded robot plan. A <strong>Claude vision model</strong> reads the RealSense D435i frame and returns a JSON list of objects with pixel centres; depth + camera intrinsics back-project each one into the <code>base_link</code> frame; a <strong>Claude planner</strong> then drives an 8-tool loop (<code>describe_scene</code>, <code>pick</code>, <code>place</code>, <code>move_to</code>, <code>open_gripper</code>, <code>close_gripper</code>, <code>check_safety</code>, <code>home</code>) to execute the instruction on MoveIt 2. Built on top of my thesis's UR3e + Robotiq 2F-140 + D435i Gazebo sim, with a read-only safety gate that reuses the thesis F/T and proximity topics. The point is that the high-level reasoning (e.g. "put the red block next to the blue cup" &rarr; grasp pose &rarr; place pose) is synthesised by the LLM over real tool feedback, not a hand-written state machine.</p>
             <div class="tech-tags">
                 <span>Claude (Anthropic API)</span><span>Tool Use</span><span>VLM</span><span>ROS 2 Humble</span><span>MoveIt 2</span><span>UR3e</span><span>Robotiq 2F-140</span><span>RealSense D435i</span><span>Gazebo</span><span>Python</span>
             </div>
@@ -1010,17 +1033,53 @@
         </div>
 
         <div class="project-card">
+            <span class="project-type">Portfolio Project</span>
+            <h3>One Brain, Many Bodies: Humanoid Autonomy Stack</h3>
+            <video class="project-media" src="images/obmb_cross_embodiment.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Same task plan running on both the Unitree G1 and the Unitree H1 with only a per-robot config file changed, illustrating the 'one brain, many bodies' concept"></video>
+            <p>Hierarchical humanoid stack in MuJoCo. A <strong>local open-source VLM (Qwen2.5-VL-3B, no cloud APIs)</strong> plans at ~1 Hz via tool-calling with Set-of-Mark visual grounding, while a compliant whole-body controller executes at ~500 Hz. The same brain drives <strong>Unitree G1 and H1</strong> through one tool interface (only a per-robot config file changes); 22-DoF five-finger hands composed onto the H1 at load time via MjSpec. A PPO stance-balance policy trained CPU-only holds the pelvis to 1.4 cm while the arms reach, where the pretrained walking policy falls every time. "Human-like motion" is measurable against Flash &amp; Hogan minimum-jerk criteria: 3 of 4 grasp motions meet every human-reaching benchmark.</p>
+            <div class="pipeline-gallery">
+                <figure>
+                    <video src="images/obmb_vlm_brain.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Qwen2.5-VL-3B running locally, reading a MuJoCo scene through Set-of-Mark grounding, then emitting a tool-call plan that the low-level controller executes"></video>
+                    <figcaption>VLM planning loop, local Qwen2.5-VL with Set-of-Mark grounding</figcaption>
+                </figure>
+                <figure>
+                    <video src="images/obmb_physics_walk.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Physics-based bipedal walking policy running on the Unitree G1 in MuJoCo"></video>
+                    <figcaption>Physics-based walking policy on Unitree G1</figcaption>
+                </figure>
+            </div>
+            <div class="tech-tags">
+                <span>Python</span><span>MuJoCo</span><span>Qwen2.5-VL</span><span>PPO</span><span>Tool Use</span><span>Set-of-Mark</span><span>Admittance Control</span><span>Differential IK</span><span>Unitree G1</span><span>Unitree H1</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/NishanthSundaran/one-brain-many-bodies" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Portfolio Project</span>
+            <h3>G1 Motion Imitation: Learning Human Gait from Motion Capture</h3>
+            <img src="images/g1_walk_human_vs_cycle7.gif" alt="Side-by-side comparison: LAFAN1 human motion-capture reference on the left (speed 0.49 m/s, stride 0.46 m, cadence 1.07/s) and the trained Unitree G1 policy at cycle 7 on the right (speed 0.49 m/s, stride 0.39 m, cadence 1.52/s, 4.6B training steps), both walking in MuJoCo with overlaid gait metrics" class="project-media" loading="lazy">
+            <p>DeepMimic-style motion imitation training the <strong>Unitree G1</strong> to track <strong>LAFAN1 human mocap</strong>, running in JAX and MJX with PPO on a 6 GB laptop GPU at ~30,000 env-steps/s (9x the CPU baseline); 5.8B total training steps across 13 measured cycles. The resulting gait sits within 2 to 7% of the human reference on speed (0.48 vs 0.49 m/s), cadence (1.09 vs 1.07/s), stride (0.43 vs 0.46 m) and pelvis bounce. Found that PD position control reached in 5M steps what the reference torque-control recipe needed 300M for (~60x sample efficiency), and shipped four undocumented framework fixes upstream, including a silent JAX-scalar vs MuJoCo-enum bug that had been blocking every dataset load.</p>
+            <div class="tech-tags">
+                <span>JAX</span><span>MJX</span><span>PPO</span><span>DeepMimic</span><span>LAFAN1 Mocap</span><span>Unitree G1</span><span>MuJoCo</span><span>Python</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/NishanthSundaran/g1-motion-imitation" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
             <span class="project-type">Case Study</span>
-            <h3>Air Quality Index Prediction &amp; Forecasting — Chennai</h3>
+            <h3>Air Quality Index Prediction &amp; Forecasting for Chennai</h3>
             <p>Seven independent <strong>SARIMA</strong> models (PM2.5, PM10, NO<sub>2</sub>, SO<sub>2</sub>, O<sub>3</sub>, CO, and overall AQI) trained on the Kaggle <em>Air Quality in India</em> dataset, feeding monthly pollutant forecasts into the <strong>Indian CPCB sub-index formula</strong> <code>I = ((I<sub>HI</sub>−I<sub>LO</sub>)/(BP<sub>HI</sub>−BP<sub>LO</sub>))(C<sub>p</sub>−BP<sub>LO</sub>) + I<sub>LO</sub></code>. Overall AQI = max sub-index across pollutants, with a colour-coded six-category severity banner and health advice. The original Tkinter windows were rewritten as a single <strong>Streamlit web app</strong> with a forecast-by-month tab and a live AQI calculator tab (dominant-pollutant readout, CSV export, expandable CPCB breakpoint reference).</p>
             <div class="pipeline-gallery">
                 <figure>
                     <img src="images/aqi_forecast.png" alt="Streamlit app showing the forecast tab: date picker, CPCB versus SARIMA AQI metrics side by side, and a per-pollutant forecast table with units" loading="lazy">
-                    <figcaption>Forecast tab — month picker &rarr; SARIMA &rarr; CPCB AQI</figcaption>
+                    <figcaption>Forecast tab: month picker &rarr; SARIMA &rarr; CPCB AQI</figcaption>
                 </figure>
                 <figure>
                     <img src="images/aqi_calculator.png" alt="Streamlit app showing the calculator tab: six numeric inputs for pollutants, live colour-coded AQI banner, dominant pollutant readout, and a sub-index table" loading="lazy">
-                    <figcaption>Calculator tab — live sub-indices &amp; dominant pollutant</figcaption>
+                    <figcaption>Calculator tab: live sub-indices &amp; dominant pollutant</figcaption>
                 </figure>
             </div>
             <div class="tech-tags">
@@ -1044,23 +1103,23 @@
         <div class="project-card">
             <span class="project-type">Self Study</span>
             <h3>Contour Detection Using Computer Vision</h3>
-            <p>Classical OpenCV pipeline that segments individual tablets inside a blister pack and classifies each by whether its horizontal seam edge is visible. Pipeline: Sobel-based edge exploration &rarr; Gaussian blur + adaptive thresholding to get a clean binary mask &rarr; Canny edges on the cropped region &rarr; <code>cv2.findContours</code> with area filtering to isolate tablets &rarr; per-contour horizontal-edge check drives red / green bounding-box classification. Built without any deep learning — the point was to reason about edges, thresholds, and morphology from first principles.</p>
+            <p>Classical OpenCV pipeline that segments individual tablets inside a blister pack and classifies each by whether its horizontal seam edge is visible. Pipeline: Sobel-based edge exploration &rarr; Gaussian blur + adaptive thresholding to get a clean binary mask &rarr; Canny edges on the cropped region &rarr; <code>cv2.findContours</code> with area filtering to isolate tablets &rarr; per-contour horizontal-edge check drives red / green bounding-box classification. Built without any deep learning, the point was to reason about edges, thresholds, and morphology from first principles.</p>
             <div class="pipeline-gallery">
                 <figure>
                     <img src="images/contour_01_input.png" alt="Original input: pack of tablets" loading="lazy">
-                    <figcaption>1. Input — tablet pack</figcaption>
+                    <figcaption>1. Input: tablet pack</figcaption>
                 </figure>
                 <figure>
                     <img src="images/contour_02_sobel.png" alt="Sobel vertical and horizontal edge filters applied to the grayscale tablet pack" loading="lazy">
-                    <figcaption>2. Sobel — vertical &amp; horizontal edges</figcaption>
+                    <figcaption>2. Sobel: vertical &amp; horizontal edges</figcaption>
                 </figure>
                 <figure>
                     <img src="images/contour_03_threshold.png" alt="Adaptive threshold, Gaussian blur, and threshold-on-blur outputs side by side" loading="lazy">
-                    <figcaption>3. Preprocess — threshold + blur</figcaption>
+                    <figcaption>3. Preprocess: threshold + blur</figcaption>
                 </figure>
                 <figure>
                     <img src="images/contour_04_result.png" alt="Final result showing green bounding boxes on tablets with visible horizontal seam edges and red bounding boxes on tablets without" loading="lazy">
-                    <figcaption>4. Result — green = seam edge, red = no seam</figcaption>
+                    <figcaption>4. Result: green = seam edge, red = no seam</figcaption>
                 </figure>
             </div>
             <div class="tech-tags">
@@ -1073,8 +1132,8 @@
 
         <div class="project-card">
             <span class="project-type">Self Study</span>
-            <h3>Point Operations — Brightness, Contrast &amp; Inversion</h3>
-            <p>Implemented the core pixel-wise intensity transforms from first principles: the affine map <code>g(x,y) = &alpha;&middot;f(x,y) + &beta;</code> drives darken, lighten, low-contrast, and high-contrast variants; a bitwise NOT gives the photographic negative; and a weighted RGB&rarr;luminance projection <code>0.3R + 0.6G + 0.1B</code> produces grayscale. All seven outputs — original, darken, lighten, invert, low-contrast, high-contrast, grayscale — are rendered side by side. No library-level helpers beyond the numpy clip and the OpenCV colour-space wrappers.</p>
+            <h3>Point Operations: Brightness, Contrast &amp; Inversion</h3>
+            <p>Implemented the core pixel-wise intensity transforms from first principles: the affine map <code>g(x,y) = &alpha;&middot;f(x,y) + &beta;</code> drives darken, lighten, low-contrast, and high-contrast variants; a bitwise NOT gives the photographic negative; and a weighted RGB&rarr;luminance projection <code>0.3R + 0.6G + 0.1B</code> produces grayscale. All seven outputs (original, darken, lighten, invert, low-contrast, high-contrast, grayscale) are rendered side by side. No library-level helpers beyond the numpy clip and the OpenCV colour-space wrappers.</p>
             <img src="images/point_ops_result.png" alt="Seven-panel comparison of a sports photograph showing original, darken, lighten, invert, low-contrast, high-contrast, and grayscale variants" class="project-media" loading="lazy">
             <div class="tech-tags">
                 <span>OpenCV</span><span>NumPy</span><span>Python</span><span>Point Operations</span><span>Image Processing</span>
@@ -1087,7 +1146,7 @@
         <div class="project-card">
             <span class="project-type">Self Study</span>
             <h3>Histogram Equalization from Scratch</h3>
-            <p>Reimplemented global histogram equalization without using <code>cv2.equalizeHist</code>: compute the 256-bin intensity histogram, derive the PDF and then the CDF, and use <code>np.interp</code> to remap every pixel through the CDF &times; 255 lookup. Applied to an under-exposed sunset photograph where most of the intensity mass sits near zero — the equalized output spreads that narrow range across the full 0-255 gamut, pulling foliage texture and cloud structure out of the near-black regions.</p>
+            <p>Reimplemented global histogram equalization without using <code>cv2.equalizeHist</code>: compute the 256-bin intensity histogram, derive the PDF and then the CDF, and use <code>np.interp</code> to remap every pixel through the CDF &times; 255 lookup. Applied to an under-exposed sunset photograph where most of the intensity mass sits near zero; the equalized output spreads that narrow range across the full 0-255 gamut, pulling foliage texture and cloud structure out of the near-black regions.</p>
             <img src="images/hist_eq_result.png" alt="Side-by-side comparison of an under-exposed sunset photograph and the same image after manual histogram equalization, showing recovered detail in the sky and foliage" class="project-media" loading="lazy">
             <div class="tech-tags">
                 <span>NumPy</span><span>Matplotlib</span><span>Python</span><span>Histogram Equalization</span><span>Image Processing</span>
@@ -1123,7 +1182,7 @@
         <div class="skill-category">
             <h3><i class="fas fa-brain"></i>&nbsp; AI &amp; Machine Learning</h3>
             <div class="skill-items">
-                <span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>Deep Learning</span><span>Reinforcement Learning</span><span>ARIMA</span><span>SARIMA</span>
+                <span>Agentic AI</span><span>Tool Use</span><span>VLM</span><span>VLA</span><span>LLM Application Development</span><span>PyTorch</span><span>JAX</span><span>TensorFlow</span><span>Scikit-learn</span><span>Deep Learning</span><span>Reinforcement Learning (PPO)</span><span>ARIMA</span><span>SARIMA</span>
             </div>
         </div>
 
@@ -1160,7 +1219,7 @@
         <div class="edu-card">
             <span class="degree">Master of Engineering</span>
             <h3>Artificial Intelligence for Smart Sensors and Actuators</h3>
-            <p class="institution">Technische Hochschule Deggendorf (DIT) &mdash; Cham, Germany &bull; 2022 &ndash; 2026</p>
+            <p class="institution">Technische Hochschule Deggendorf (DIT), Cham, Germany &bull; 2022 to 2026</p>
             <div class="thesis">"Human-Robot Interaction with Force Feedback in Collaborative Tasks"</div>
             <p>Specialisation: Machine Learning, Deep Learning, Computer Vision, Autonomous Systems, IoT, Robotics</p>
         </div>
@@ -1168,9 +1227,28 @@
         <div class="edu-card">
             <span class="degree">Bachelor of Engineering</span>
             <h3>Electrical and Electronics Engineering</h3>
-            <p class="institution">University of Calicut &mdash; Kerala, India</p>
+            <p class="institution">University of Calicut, Kerala, India</p>
             <div class="thesis">"Implementation of MPPT on PV Cell Using Incremental Conductance Method"</div>
             <p>Specialisation: Digital Signal Processing, Digital System Design, Power Electronics, IoT</p>
+        </div>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+    <div class="purple-bar"></div>
+    <h2 class="section-title">Certifications</h2>
+    <p class="section-subtitle">External credentials backing the skill set</p>
+
+    <div class="education-cards">
+        <div class="edu-card">
+            <span class="degree">Coursera</span>
+            <h3>AI Agents and Agentic AI with Python &amp; Generative AI</h3>
+            <p class="institution">Vanderbilt University &bull; August 2026</p>
+            <p>Agentic workflows, tool-calling frameworks, function-calling mechanisms, prompt patterns, OpenAI API, production-ready agent design.</p>
+            <div class="project-links" style="margin-top:0.75rem;">
+                <a href="https://www.coursera.org/account/accomplishments/verify/M5M2XTC1FN5O" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Verify credential (M5M2XTC1FN5O)</a>
+            </div>
         </div>
     </div>
 </section>
