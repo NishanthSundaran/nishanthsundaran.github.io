@@ -235,6 +235,7 @@
 
         .hero-buttons {
             display: flex;
+            flex-wrap: wrap;
             gap: 1rem;
         }
 
@@ -735,6 +736,11 @@
                 justify-content: center;
             }
 
+            .hero-buttons a {
+                min-width: 200px;
+                text-align: center;
+            }
+
             .hero-image img {
                 width: 200px;
                 height: 200px;
@@ -882,18 +888,20 @@
         <div class="hero-text">
             <p class="greeting">Hello, I'm</p>
             <h1>Nishanth<br><span>Sundaran</span></h1>
-            <p class="tagline">I build safe, intelligent robotic systems that work alongside people. M.Engg. AI Graduate specialising in collaborative robotics, real-time control, and deep learning.</p>
+            <p class="tagline">I build safe, intelligent robots that work alongside people. M.Eng. AI graduate working across collaborative robotics, humanoid autonomy, and agentic AI with vision-language models.</p>
             <div class="hero-tags">
                 <span class="tag">ROS 2</span>
                 <span class="tag">MoveIt 2</span>
-                <span class="tag">ISO/TS 15066</span>
-                <span class="tag">YOLOv8</span>
+                <span class="tag">VLM / VLA</span>
+                <span class="tag">Agentic AI</span>
+                <span class="tag">Humanoid Robotics</span>
+                <span class="tag">PyTorch</span>
                 <span class="tag">Python</span>
-                <span class="tag">Computer Vision</span>
-                <span class="tag">Admittance Control</span>
+                <span class="tag">ISO/TS 15066</span>
             </div>
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary">Get in Touch</a>
+                <a href="cv.pdf" download="Nishanth_Sundaran_CV.pdf" class="btn-secondary"><i class="fas fa-download"></i>&nbsp; Download CV</a>
                 <a href="https://www.linkedin.com/in/nishanthsundaran" target="_blank" class="btn-secondary"><i class="fab fa-linkedin"></i>&nbsp; LinkedIn</a>
             </div>
         </div>
