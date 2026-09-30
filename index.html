@@ -103,6 +103,18 @@
             color: var(--purple-light);
         }
 
+        .nav-links a.nav-cv {
+            background: var(--purple);
+            color: #fff;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+        .nav-links a.nav-cv:hover {
+            background: var(--purple-light);
+            color: #fff;
+        }
+
         .hamburger {
             display: none;
             flex-direction: column;
@@ -134,6 +146,17 @@
             color: var(--text-muted);
             margin-bottom: 3rem;
             font-size: 0.95rem;
+        }
+
+        .availability {
+            display: inline-block;
+            background: rgba(107, 63, 160, 0.12);
+            border: 1px solid rgba(107, 63, 160, 0.35);
+            color: var(--purple-light);
+            padding: 0.55rem 0.95rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin: -1.5rem 0 2rem 0;
         }
 
         .purple-bar {
@@ -845,6 +868,7 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="cv.pdf" download="Nishanth_Sundaran_CV.pdf" class="nav-cv"><i class="fas fa-download"></i>&nbsp; CV</a></li>
         </ul>
         <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
             <span></span><span></span><span></span>
@@ -884,10 +908,11 @@
     <div id="about">
         <div class="purple-bar"></div>
         <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Master's Thesis Researcher at Technische Hochschule Deggendorf</p>
+        <p class="section-subtitle">Recent M.Eng. Graduate, Robotics and AI &middot; Cham, Bavaria</p>
+        <p class="availability">Graduated 14 June 2026. Immediately available for full-time roles in Germany. EU residence permit under &sect;20 AufenthG.</p>
         <div class="about-grid">
             <div class="about-text">
-                <p>As my Master's thesis at Technische Hochschule Deggendorf, I designed and implemented a complete human-robot interaction framework on a UR3e collaborative robot, from force control to computer vision to safety compliance.</p>
+                <p>I recently completed my M.Eng. at Technische Hochschule Deggendorf, where my thesis delivered a complete human-robot interaction framework on a UR3e collaborative robot, from force control to computer vision to safety compliance.</p>
                 <p>The system features a hybrid position-admittance controller for real-time force-guided collaboration, an ISO/TS 15066-compliant safety architecture with Speed &amp; Separation Monitoring, Power &amp; Force Limiting, and Hand Guiding modes, and a YOLOv8-based human detection pipeline using an Intel RealSense D435i depth camera in an eye-to-hand configuration.</p>
                 <p>A 13-state finite state machine orchestrates assistive lift-and-place tasks, combining autonomous grasping with human-guided object placement via real-time force feedback, all integrated in ROS 2 Humble with MoveIt 2, MoveIt Servo, Gazebo, and a Robotiq 2F-140 gripper.</p>
                 <p>Previously, I applied computer vision and ML to renewable energy monitoring at Energy Future World (85% detection accuracy on aerial imagery), and gained industrial experience at M&uuml;hlbauer Group, Amazon, and Power And Instrumentations Ltd.</p>
@@ -910,7 +935,7 @@
 
     <div class="timeline">
         <div class="timeline-item">
-            <span class="date">Sep 2025 to Mar 2026</span>
+            <span class="date">Sep 2025 to Jun 2026</span>
             <h3>Master's Thesis Researcher</h3>
             <p class="company">Technische Hochschule Deggendorf (THD), Cham, Germany</p>
             <ul>
@@ -981,62 +1006,10 @@
 
     <div class="projects-grid">
         <div class="project-card featured">
-            <div>
-                <span class="project-type">Master's Thesis &middot; Demo</span>
-                <h3>Human-Robot Interaction with Force Feedback in Collaborative Tasks</h3>
-                <p>Complete HRI framework on a UR3e cobot: hybrid admittance control, ISO/TS 15066 safety (SSM, PFL, Hand Guiding), YOLOv8 human detection with Intel RealSense D435i, and a 13-state FSM for assistive manipulation.</p>
-                <div class="tech-tags">
-                    <span>ROS 2</span><span>MoveIt 2</span><span>YOLOv8</span><span>Python</span><span>Gazebo</span><span>ISO/TS 15066</span><span>UR3e</span><span>Intel RealSense</span>
-                </div>
-                <a href="https://github.com/NishanthSundaran/Human-Robot-Interaction-with-Force-Feedback-in-Collaborative-Tasks" target="_blank" class="project-github-link">
-                    <i class="fab fa-github"></i>&nbsp; View on GitHub
-                </a>
-            </div>
-            <video class="project-video" controls preload="metadata" poster="images/lab_setup.jpeg">
-                <source src="videos/thesis_demo.webm" type="video/webm">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Bachelor's Thesis</span>
-            <h3>Implementation of MPPT on PV Cell Using Incremental Conductance Method</h3>
-            <p>Modelled a 150W PV module in MATLAB/Simulink, implemented the Incremental Conductance MPPT algorithm with a SEPIC DC-DC converter. Achieved 97%+ MPP tracking accuracy, outperforming Perturb &amp; Observe under varying irradiance.</p>
-            <div class="tech-tags">
-                <span>MATLAB</span><span>Simulink</span><span>Simscape</span><span>Power Electronics</span>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Case Study</span>
-            <h3>Autonomous Mobile Robot with SLAM &amp; Nav2</h3>
-            <video class="project-media" src="images/slam_nav_bot_demo.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Screencast of the robot autonomously navigating the warehouse world in Gazebo with RViz showing the planned path and costmaps"></video>
-            <p>Four-wheeled mobile robot with a 2D LiDAR, rebuilt from scratch on ROS 2 Humble as a solo portfolio piece. Runs <strong>slam_toolbox</strong> for online SLAM and a full <strong>Nav2</strong> stack (AMCL, NavFn A*, DWB local planner, behaviour-tree navigator) for autonomous goal-to-pose navigation on the saved map. Verified in a cluttered warehouse: 3/3 goals reached, 0 collisions, 0 recoveries on the final tuning pass.</p>
-            <div class="tech-tags">
-                <span>ROS 2 Humble</span><span>Nav2</span><span>slam_toolbox</span><span>Gazebo Classic</span><span>AMCL</span><span>DWB</span><span>URDF/Xacro</span><span>Python Launch</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/SLAM_nav_bot" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Portfolio Project</span>
-            <h3>Embodied LLM Agent for UR3e Pick-and-Place</h3>
-            <p>A natural-language command becomes a grounded robot plan. A <strong>Claude vision model</strong> reads the RealSense D435i frame and returns a JSON list of objects with pixel centres; depth + camera intrinsics back-project each one into the <code>base_link</code> frame; a <strong>Claude planner</strong> then drives an 8-tool loop (<code>describe_scene</code>, <code>pick</code>, <code>place</code>, <code>move_to</code>, <code>open_gripper</code>, <code>close_gripper</code>, <code>check_safety</code>, <code>home</code>) to execute the instruction on MoveIt 2. Built on top of my thesis's UR3e + Robotiq 2F-140 + D435i Gazebo sim, with a read-only safety gate that reuses the thesis F/T and proximity topics. The point is that the high-level reasoning (e.g. "put the red block next to the blue cup" &rarr; grasp pose &rarr; place pose) is synthesised by the LLM over real tool feedback, not a hand-written state machine.</p>
-            <div class="tech-tags">
-                <span>Claude (Anthropic API)</span><span>Tool Use</span><span>VLM</span><span>ROS 2 Humble</span><span>MoveIt 2</span><span>UR3e</span><span>Robotiq 2F-140</span><span>RealSense D435i</span><span>Gazebo</span><span>Python</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/embodied_agent" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
             <span class="project-type">Portfolio Project</span>
             <h3>One Brain, Many Bodies: Humanoid Autonomy Stack</h3>
             <video class="project-media" src="images/obmb_cross_embodiment.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Same task plan running on both the Unitree G1 and the Unitree H1 with only a per-robot config file changed, illustrating the 'one brain, many bodies' concept"></video>
-            <p>Hierarchical humanoid stack in MuJoCo. A <strong>local open-source VLM (Qwen2.5-VL-3B, no cloud APIs)</strong> plans at ~1 Hz via tool-calling with Set-of-Mark visual grounding, while a compliant whole-body controller executes at ~500 Hz. The same brain drives <strong>Unitree G1 and H1</strong> through one tool interface (only a per-robot config file changes); 22-DoF five-finger hands composed onto the H1 at load time via MjSpec. A PPO stance-balance policy trained CPU-only holds the pelvis to 1.4 cm while the arms reach, where the pretrained walking policy falls every time. "Human-like motion" is measurable against Flash &amp; Hogan minimum-jerk criteria: 3 of 4 grasp motions meet every human-reaching benchmark.</p>
+            <p>Cross-embodiment humanoid autonomy stack in MuJoCo, driven by a <strong>self-hosted vision-language model (Qwen2.5-VL-3B, no cloud APIs)</strong> and a compliant whole-body controller. The VLM plans at ~1 Hz via tool-calling with Set-of-Mark visual grounding; the controller executes at ~500 Hz. The same brain drives <strong>Unitree G1 and H1</strong> through one tool interface (only a per-robot config file changes); 22-DoF five-finger hands composed onto the H1 at load time via MjSpec. A PPO stance-balance policy trained CPU-only holds the pelvis to 1.4 cm while the arms reach, where the pretrained walking policy falls every time. "Human-like motion" is measurable against Flash &amp; Hogan minimum-jerk criteria: 3 of 4 grasp motions meet every human-reaching benchmark.</p>
             <div class="pipeline-gallery">
                 <figure>
                     <video src="images/obmb_vlm_brain.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Qwen2.5-VL-3B running locally, reading a MuJoCo scene through Set-of-Mark grounding, then emitting a tool-call plan that the low-level controller executes"></video>
@@ -1057,6 +1030,36 @@
 
         <div class="project-card">
             <span class="project-type">Portfolio Project</span>
+            <h3>Embodied LLM Agent for UR3e Pick-and-Place</h3>
+            <p>Production-pattern agentic AI product built on <strong>Claude tool-use</strong>: a natural-language command becomes a grounded robot plan through structured outputs, validation logic, and an evaluation loop. A <strong>Claude vision model</strong> reads the RealSense D435i frame and returns a JSON list of objects with pixel centres; depth + camera intrinsics back-project each one into the <code>base_link</code> frame; a <strong>Claude planner</strong> then drives an 8-tool loop (<code>describe_scene</code>, <code>pick</code>, <code>place</code>, <code>move_to</code>, <code>open_gripper</code>, <code>close_gripper</code>, <code>check_safety</code>, <code>home</code>) to execute the instruction on MoveIt 2. Built on top of my thesis's UR3e + Robotiq 2F-140 + D435i Gazebo sim, with a read-only safety gate that reuses the thesis F/T and proximity topics. The point is that the high-level reasoning (e.g. "put the red block next to the blue cup" &rarr; grasp pose &rarr; place pose) is synthesised by the LLM over real tool feedback, not a hand-written state machine.</p>
+            <div class="tech-tags">
+                <span>Claude (Anthropic API)</span><span>Tool Use</span><span>VLM</span><span>ROS 2 Humble</span><span>MoveIt 2</span><span>UR3e</span><span>Robotiq 2F-140</span><span>RealSense D435i</span><span>Gazebo</span><span>Python</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/NishanthSundaran/embodied_agent" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div>
+                <span class="project-type">Master's Thesis &middot; Demo</span>
+                <h3>Human-Robot Interaction with Force Feedback in Collaborative Tasks</h3>
+                <p>Complete HRI framework on a UR3e cobot: hybrid admittance control, ISO/TS 15066 safety (SSM, PFL, Hand Guiding), YOLOv8 human detection with Intel RealSense D435i, and a 13-state FSM for assistive manipulation.</p>
+                <div class="tech-tags">
+                    <span>ROS 2</span><span>MoveIt 2</span><span>YOLOv8</span><span>Python</span><span>Gazebo</span><span>ISO/TS 15066</span><span>UR3e</span><span>Intel RealSense</span>
+                </div>
+                <a href="https://github.com/NishanthSundaran/Human-Robot-Interaction-with-Force-Feedback-in-Collaborative-Tasks" target="_blank" class="project-github-link">
+                    <i class="fab fa-github"></i>&nbsp; View on GitHub
+                </a>
+            </div>
+            <video class="project-video" controls preload="metadata" poster="images/lab_setup.jpeg">
+                <source src="videos/thesis_demo.webm" type="video/webm">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Portfolio Project</span>
             <h3>G1 Motion Imitation: Learning Human Gait from Motion Capture</h3>
             <img src="images/g1_walk_human_vs_cycle7.gif" alt="Side-by-side comparison: LAFAN1 human motion-capture reference on the left (speed 0.49 m/s, stride 0.46 m, cadence 1.07/s) and the trained Unitree G1 policy at cycle 7 on the right (speed 0.49 m/s, stride 0.39 m, cadence 1.52/s, 4.6B training steps), both walking in MuJoCo with overlaid gait metrics" class="project-media" loading="lazy">
             <p>DeepMimic-style motion imitation training the <strong>Unitree G1</strong> to track <strong>LAFAN1 human mocap</strong>, running in JAX and MJX with PPO on a 6 GB laptop GPU at ~30,000 env-steps/s (9x the CPU baseline); 5.8B total training steps across 13 measured cycles. The resulting gait sits within 2 to 7% of the human reference on speed (0.48 vs 0.49 m/s), cadence (1.09 vs 1.07/s), stride (0.43 vs 0.46 m) and pelvis bounce. Found that PD position control reached in 5M steps what the reference torque-control recipe needed 300M for (~60x sample efficiency), and shipped four undocumented framework fixes upstream, including a silent JAX-scalar vs MuJoCo-enum bug that had been blocking every dataset load.</p>
@@ -1065,6 +1068,19 @@
             </div>
             <div class="project-links">
                 <a href="https://github.com/NishanthSundaran/g1-motion-imitation" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <span class="project-type">Case Study</span>
+            <h3>Autonomous Mobile Robot with SLAM &amp; Nav2</h3>
+            <video class="project-media" src="images/slam_nav_bot_demo.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Screencast of the robot autonomously navigating the warehouse world in Gazebo with RViz showing the planned path and costmaps"></video>
+            <p>Four-wheeled mobile robot with a 2D LiDAR, rebuilt from scratch on ROS 2 Humble as a solo portfolio piece. Runs <strong>slam_toolbox</strong> for online SLAM and a full <strong>Nav2</strong> stack (AMCL, NavFn A*, DWB local planner, behaviour-tree navigator) for autonomous goal-to-pose navigation on the saved map. Verified in a cluttered warehouse: 3/3 goals reached, 0 collisions, 0 recoveries on the final tuning pass.</p>
+            <div class="tech-tags">
+                <span>ROS 2 Humble</span><span>Nav2</span><span>slam_toolbox</span><span>Gazebo Classic</span><span>AMCL</span><span>DWB</span><span>URDF/Xacro</span><span>Python Launch</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/NishanthSundaran/SLAM_nav_bot" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
             </div>
         </div>
 
@@ -1155,7 +1171,16 @@
                 <a href="https://github.com/NishanthSundaran/Histogram-Equalization-Computer-Vision" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
             </div>
         </div>
-    </div>
+            <div class="project-card">
+            <span class="project-type">Bachelor's Thesis</span>
+            <h3>Implementation of MPPT on PV Cell Using Incremental Conductance Method</h3>
+            <p>Modelled a 150W PV module in MATLAB/Simulink, implemented the Incremental Conductance MPPT algorithm with a SEPIC DC-DC converter. Achieved 97%+ MPP tracking accuracy, outperforming Perturb &amp; Observe under varying irradiance.</p>
+            <div class="tech-tags">
+                <span>MATLAB</span><span>Simulink</span><span>Simscape</span><span>Power Electronics</span>
+            </div>
+        </div>
+
+</div>
 </section>
 
 <!-- SKILLS -->
@@ -1297,7 +1322,7 @@
 <section id="contact">
     <div class="purple-bar" style="margin:0 auto;"></div>
     <h2 class="section-title">Get in Touch</h2>
-    <p class="section-subtitle">Open to robotics, AI/ML, and automation engineering roles in Germany</p>
+    <p class="section-subtitle">Immediately available for full-time robotics and AI engineering roles in Germany. Based in Cham, Bavaria. EU work authorisation under &sect;20 AufenthG. Open to relocation and hybrid or remote arrangements.</p>
 
     <div class="contact-links">
         <a href="mailto:sundharnishanth@gmail.com" class="contact-link">
