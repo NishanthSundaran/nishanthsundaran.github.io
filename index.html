@@ -1003,20 +1003,20 @@
         <div class="project-card featured">
             <span class="project-type">Portfolio Project</span>
             <h3>One Brain, Many Bodies: Humanoid Autonomy Stack</h3>
-            <video class="project-media" src="images/obmb_cross_embodiment.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Same task plan running on both the Unitree G1 and the Unitree H1 with only a per-robot config file changed, illustrating the 'one brain, many bodies' concept"></video>
-            <p>Cross-embodiment humanoid autonomy stack in MuJoCo, driven by a <strong>self-hosted vision-language model (Qwen2.5-VL-3B, no cloud APIs)</strong> and a compliant whole-body controller. The VLM plans at ~1 Hz via tool-calling with Set-of-Mark visual grounding; the controller executes at ~500 Hz. The same brain drives <strong>Unitree G1 and H1</strong> through one tool interface (only a per-robot config file changes); 22-DoF five-finger hands composed onto the H1 at load time via MjSpec. A PPO stance-balance policy trained CPU-only holds the pelvis to 1.4 cm while the arms reach, where the pretrained walking policy falls every time. "Human-like motion" is measurable against Flash &amp; Hogan minimum-jerk criteria: 3 of 4 grasp motions meet every human-reaching benchmark.</p>
+            <video class="project-media" src="images/obmb_walk_fetch.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Unitree G1 walks about three metres to a bench, stops upright, picks up a block, drops it in a bin and lowers its arm, balancing on its own legs throughout"></video>
+            <p>Cross-embodiment humanoid autonomy stack in MuJoCo, driven by a <strong>self-hosted vision-language model (Qwen2.5-VL-3B, no cloud APIs)</strong> and a compliant whole-body controller. The VLM plans at ~1 Hz via tool-calling with Set-of-Mark visual grounding; the controller executes at ~500 Hz. The same brain drives <strong>Unitree G1 and H1</strong> through one tool interface (only a per-robot config file changes); 22-DoF five-finger hands composed onto the H1 at load time via MjSpec. The G1 <strong>walks about 3 m to a bench, stops, picks a block and places it in a bin in 17 of 20 runs</strong>, using GPU-trained PPO walk-and-stop and stance policies trained on the states and arm motions the task really produces. Every policy is scored against human motion: torso lean while manipulating fell from 36&deg; to 1.7&deg;, foot lifts while standing by 97%, the gait runs at about 2 steps/s (human 1.9) with 0 falls in 30 walks, and the arm follows minimum-jerk paths.</p>
             <div class="pipeline-gallery">
                 <figure>
                     <video src="images/obmb_vlm_brain.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Qwen2.5-VL-3B running locally, reading a MuJoCo scene through Set-of-Mark grounding, then emitting a tool-call plan that the low-level controller executes"></video>
                     <figcaption>VLM planning loop, local Qwen2.5-VL with Set-of-Mark grounding</figcaption>
                 </figure>
                 <figure>
-                    <video src="images/obmb_physics_walk.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Physics-based bipedal walking policy running on the Unitree G1 in MuJoCo"></video>
-                    <figcaption>Physics-based walking policy on Unitree G1</figcaption>
+                    <video src="images/obmb_cross_embodiment.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Same task plan running on both the Unitree G1 and the Unitree H1 with only a per-robot config file changed, illustrating the 'one brain, many bodies' concept"></video>
+                    <figcaption>Same brain, two bodies: Unitree G1 and H1, only a config file changes</figcaption>
                 </figure>
             </div>
             <div class="tech-tags">
-                <span>Python</span><span>MuJoCo</span><span>Qwen2.5-VL</span><span>PPO</span><span>Tool Use</span><span>Set-of-Mark</span><span>Admittance Control</span><span>Differential IK</span><span>Unitree G1</span><span>Unitree H1</span>
+                <span>Python</span><span>PyTorch</span><span>MuJoCo</span><span>Qwen2.5-VL</span><span>PPO</span><span>Tool Use</span><span>Set-of-Mark</span><span>Admittance Control</span><span>Differential IK</span><span>Unitree G1</span><span>Unitree H1</span>
             </div>
             <div class="project-links">
                 <a href="https://github.com/NishanthSundaran/one-brain-many-bodies" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
