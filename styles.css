@@ -12,6 +12,7 @@
 /* Hallmark · dropped "All rights reserved" · 19 names the stock footer line */
 /* Hallmark · kept 6 GB, 30,000 env-steps/s and 2 to 7% inside each project's full write-up disclosure · the tiles show the three figures that compare, the rest stay one click away */
 /* Hallmark · waive 59 · the 73px reading is the earlier-work index list measured against the skills head, both sections keep the 144px section step · the index section has no h2 of its own */
+/* Hallmark · added 2026-11-01: LIBERO card, a t-wide variant (3:1 comparison video full width, text 7fr, figures stacked 5fr) so it does not repeat the G1 lead's split; Pause moved into the caption row so it never covers a policy */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -120,6 +121,15 @@ html:not(.js) [data-loop-toggle] { display: none; }
 .media + h3, .media-fig + h3, .gallery + h3 { margin-top: var(--space-sm); }
 .media--4x3 { aspect-ratio: 4 / 3; }
 .media--strip { aspect-ratio: 760 / 214; }
+.media--triple { aspect-ratio: 3 / 1; }
+.t-wide { grid-column: span 12; }
+.fig-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); }
+.wide-below { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-xl); align-items: start; margin-top: var(--space-sm); }
+.wide-text { display: flex; flex-direction: column; gap: var(--space-md); min-width: 0; }
+.wide-text h3 { overflow-wrap: break-word; min-width: 0; }
+.wide-below .figs--stack { grid-template-columns: minmax(0, 1fr); margin: 0; }
+.wide-below .figs--stack > div, .wide-below .figs--stack > div:first-child { padding: var(--space-sm) 0; border-left: 0; border-top: var(--rule-hair) solid var(--color-rule-2); }
+.wide-below .figs--stack dd { font-size: var(--text-lg); }
 .media--contain img { object-fit: contain; background: var(--color-paper); }
 .media .loop-btn { position: absolute; right: var(--space-sm); bottom: var(--space-sm); z-index: 2; }
 figcaption, .caption { margin-top: var(--space-xs); font-size: var(--text-sm); color: var(--color-muted); }
@@ -244,6 +254,7 @@ figcaption, .caption { margin-top: var(--space-xs); font-size: var(--text-sm); c
   .t-4 { grid-column: span 6; }
 }
 @media (max-width: 60rem) {
+  .wide-below { grid-template-columns: minmax(0, 1fr); }
   .hamburger { display: inline-flex; align-items: center; }
   .nav-links { display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; align-items: stretch; gap: 0; padding: var(--space-sm) var(--gutter) var(--space-lg); background: var(--color-paper); border-bottom: var(--rule-hair) solid var(--color-rule); }
   .nav-links.active { display: flex; }

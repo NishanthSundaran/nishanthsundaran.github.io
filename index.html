@@ -87,7 +87,7 @@
                 <div><dt>Focus</dt><dd>I am a robotics and AI engineer based in Cham, Bavaria. I recently completed my M.Eng. in Artificial Intelligence for Smart Sensors and Actuators at Technische Hochschule Deggendorf, and my focus is robots that are safe and genuinely useful around people.</dd></div>
                 <div><dt>Thesis</dt><dd>My Master&rsquo;s thesis delivered a complete human-robot interaction stack on a UR3e cobot: a 500 Hz hybrid position-admittance controller, an ISO/TS 15066 safety layer (Speed &amp; Separation Monitoring, Power &amp; Force Limiting, Hand Guiding), and YOLOv8 human detection on an Intel RealSense D435i, built in ROS 2 Humble and MoveIt 2 and validated on real hardware.</dd></div>
                 <div><dt>Since then</dt><dd>Since then I have focused on connecting foundation models to real robot bodies: a Claude tool-use agent that turns natural-language commands into MoveIt 2 pick-and-place plans, a self-hosted Qwen2.5-VL brain that drives both the Unitree G1 and H1 humanoids through one tool interface, and a G1 motion-imitation policy trained on human motion capture in JAX and MJX.</dd></div>
-                <div><dt>Most recently</dt><dd>Most recently I have been benchmarking vision-language-action models on LIBERO: reproducing SmolVLA, I traced a gap to the published result to a simulator rendering change and to open-loop action chunks, and with replanning reached 97% on held-out scenes without retraining. A short assignment teleoperating two Franka arms for robot-learning data collection at AlphaIgnis showed me how such models are trained in practice.</dd></div>
+                <div><dt>Most recently</dt><dd>Most recently I have been benchmarking vision-language-action models on LIBERO: reproducing SmolVLA, I traced a gap to the published result to a simulator rendering change and to open-loop action chunks, then trained ACT and Diffusion Policy models on a laptop GPU that match its 97% on held-out scenes. A short assignment teleoperating two Franka arms for robot-learning data collection at AlphaIgnis showed me how such models are trained in practice.</dd></div>
                 <div><dt>Before robotics</dt><dd>Before robotics I worked as a project engineer on high-voltage power grids, in data analysis at Amazon, and as a remote ML intern applying computer vision to aerial imagery. I am now looking for roles in robotics software, humanoid robotics, VLA and embodied AI, or collaborative robotics, either full-time or as a full-time internship that leads to a permanent position.</dd></div>
             </dl>
         </div>
@@ -182,6 +182,34 @@
                 </details>
                 <p class="links"><a class="link" href="https://github.com/NishanthSundaran/one-brain-many-bodies" target="_blank" rel="noopener">View on GitHub</a></p>
             </div>
+            </article>
+
+            <article class="project-card t-wide">
+                <figure class="media-fig" data-loop>
+                    <div class="media media--triple">
+                    <video src="images/libero_three_policies.mp4" poster="images/posters/libero_three_policies.jpg" loop muted playsinline preload="metadata" width="1152" height="384" aria-label="The same held-out LIBERO episode run by three policies side by side, SmolVLA, ACT and Diffusion Policy; each robot picks up the tomato sauce can and places it in the basket"></video>
+                    </div>
+                    <figcaption class="fig-row">The same held-out episode, three policies: each places the tomato sauce in the basket.<button class="btn btn--line btn--small" type="button" data-loop-toggle>Pause</button></figcaption>
+                </figure>
+                <div class="wide-below">
+                    <div class="wide-text">
+                        <h3>LIBERO Imitation Study: VLA vs ACT vs Diffusion Policy</h3>
+                        <p>One ACT and one Diffusion Policy model, trained on a laptop GPU for all ten LIBERO-Object tasks, match the 450M-parameter SmolVLA on 100 held-out episodes.</p>
+                        <details>
+                            <summary>Read the full write-up</summary>
+                            <div class="more">
+                                <p>Benchmark of a <strong>vision-language-action model (SmolVLA)</strong> against two imitation-learning policies, <strong>ACT and Diffusion Policy</strong>, on LIBERO-Object with LeRobot, all on a 6 GB RTX 3060 laptop GPU. Before training anything I reproduced the published SmolVLA checkpoint: it first scored 56% against a published 96%, and I traced the gap to a MuJoCo rendering change (pinning 3.3.2 restored it) and to open-loop action chunks (replanning every 10 actions gave <strong>97/100 on held-out scenes</strong>). I then trained one ACT model (52M) and one Diffusion Policy model (89M) on the same 454 demonstrations for all ten tasks. Decisions were made on a separate dev split and compared with paired McNemar tests. Image augmentation lifted ACT from <strong>78 to 97/100</strong> (21 episodes fixed, 2 broken, p = 0.0001); Diffusion Policy reached 100/100 on dev and 97/100 on held-out. The three policies are statistically tied, and rollout videos show they all fail the same way: tall bottles that slip or tip over. A demo-count study (10 and 20 demonstrations per task) is running.</p>
+                                <p class="tools">Built with LeRobot, PyTorch, SmolVLA, ACT, Diffusion Policy, LIBERO, MuJoCo, mixed-precision training and Python.</p>
+                            </div>
+                        </details>
+                        <p class="links"><a class="link" href="https://github.com/NishanthSundaran/libero-imitation-study" target="_blank" rel="noopener">View on GitHub</a></p>
+                    </div>
+                    <dl class="figs figs--stack">
+                        <div><dt>Held-out success, each of the three</dt><dd class="num">97<span class="u">&#8201;/ 100</span></dd></div>
+                        <div><dt>ACT without, then with augmentation</dt><dd class="num">78 / 97</dd></div>
+                        <div><dt>Parameters, ACT and SmolVLA</dt><dd class="num">52M / 450M</dd></div>
+                    </dl>
+                </div>
             </article>
 
             <article class="project-card t-6">
