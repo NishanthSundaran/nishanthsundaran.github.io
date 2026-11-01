@@ -23,849 +23,18 @@
     <meta name="twitter:image" content="https://nishanthsundaran.github.io/images/profile.png">
     <meta name="twitter:image:alt" content="Portrait of Nishanth Sundaran">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        :root {
-            --purple: #6B3FA0;
-            --purple-light: #8B5FBF;
-            --purple-dark: #4A2B70;
-            --bg-dark: #0f0f1a;
-            --bg-card: #1a1a2e;
-            --bg-card-hover: #222240;
-            --text-primary: #f0f0f5;
-            --text-secondary: #a0a0b8;
-            --text-muted: #6a6a80;
-            --accent: #6B3FA0;
-            --gradient: linear-gradient(135deg, #6B3FA0, #4A2B70);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-
-        /* --- NAV --- */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(15, 15, 26, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(107, 63, 160, 0.2);
-            padding: 0 2rem;
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 60px;
-        }
-
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--purple-light);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--purple-light);
-        }
-
-        .nav-links a.nav-cv {
-            background: var(--purple);
-            color: #fff;
-            padding: 0.4rem 0.9rem;
-            border-radius: 999px;
-            font-weight: 600;
-        }
-        .nav-links a.nav-cv:hover {
-            background: var(--purple-light);
-            color: #fff;
-        }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-        }
-
-        .hamburger span {
-            width: 25px;
-            height: 2px;
-            background: var(--text-secondary);
-            transition: 0.3s;
-        }
-
-        /* --- SECTIONS --- */
-        section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            font-size: 0.95rem;
-        }
-
-        .availability {
-            display: inline-block;
-            background: rgba(107, 63, 160, 0.12);
-            border: 1px solid rgba(107, 63, 160, 0.35);
-            color: var(--purple-light);
-            padding: 0.55rem 0.95rem;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            margin: -1.5rem 0 2rem 0;
-        }
-
-        .purple-bar {
-            width: 50px;
-            height: 3px;
-            background: var(--purple);
-            margin-bottom: 1rem;
-            border-radius: 2px;
-        }
-
-        /* --- HERO --- */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 60px;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-            width: 100%;
-        }
-
-        .hero-text {
-            flex: 1;
-        }
-
-        .hero-text .greeting {
-            color: var(--purple-light);
-            font-size: 1rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero-text h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.15;
-            margin-bottom: 1rem;
-        }
-
-        .hero-text h1 span {
-            background: linear-gradient(135deg, #6B3FA0, #a06fd8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-text .tagline {
-            color: var(--text-secondary);
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
-            max-width: 520px;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .hero-tags .tag {
-            background: rgba(107, 63, 160, 0.2);
-            border: 1px solid rgba(107, 63, 160, 0.4);
-            color: var(--purple-light);
-            padding: 0.35rem 0.85rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(107, 63, 160, 0.35);
-        }
-
-        .btn-secondary {
-            border: 1px solid rgba(107, 63, 160, 0.5);
-            color: var(--purple-light);
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(107, 63, 160, 0.15);
-        }
-
-        .hero-image {
-            flex-shrink: 0;
-        }
-
-        .hero-image img {
-            width: 280px;
-            height: 280px;
-            object-fit: cover;
-            object-position: center 25%;
-            border-radius: 50%;
-            border: 4px solid var(--purple);
-            box-shadow: 0 0 40px rgba(107, 63, 160, 0.3);
-        }
-
-        /* --- ABOUT --- */
-        #about {
-            background: var(--bg-card);
-            border-radius: 16px;
-            margin-top: -2rem;
-            padding: 3rem;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid rgba(107, 63, 160, 0.3);
-        }
-
-        .about-image figcaption {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            text-align: center;
-            margin-top: 0.5rem;
-        }
-
-        /* --- EXPERIENCE --- */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--purple), transparent);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-left: 1.5rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.35rem;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--purple);
-            border: 3px solid var(--bg-dark);
-        }
-
-        .timeline-item .date {
-            color: var(--purple-light);
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .timeline-item h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.15rem;
-        }
-
-        .timeline-item .company {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .timeline-item ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .timeline-item ul li {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            padding: 0.2rem 0;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .timeline-item ul li::before {
-            content: '\f054';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 0.55rem;
-            color: var(--purple-light);
-            position: absolute;
-            left: 0;
-            top: 0.45rem;
-        }
-
-        .timeline-item .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.75rem;
-        }
-
-        .timeline-item .tech-tags span {
-            background: rgba(107, 63, 160, 0.15);
-            color: var(--purple-light);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        /* --- PROJECTS --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card.featured {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            border-color: rgba(107, 63, 160, 0.4);
-            background: linear-gradient(135deg, var(--bg-card), rgba(107, 63, 160, 0.08));
-        }
-
-        .project-video {
-            width: 100%;
-            border-radius: 8px;
-            border: 1px solid rgba(107, 63, 160, 0.3);
-            background: #000;
-            display: block;
-        }
-
-        .project-github-link {
-            display: inline-flex;
-            align-items: center;
-            margin-top: 1rem;
-            padding: 0.55rem 1.1rem;
-            background: rgba(107, 63, 160, 0.15);
-            border: 1px solid rgba(107, 63, 160, 0.5);
-            color: var(--purple-light);
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .project-github-link:hover {
-            background: rgba(107, 63, 160, 0.3);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .project-card.featured {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border: 1px solid rgba(107, 63, 160, 0.15);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--purple);
-        }
-
-        .project-card .project-type {
-            color: var(--purple-light);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-card h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .project-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-card .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .project-card .tech-tags span {
-            background: rgba(107, 63, 160, 0.12);
-            color: var(--purple-light);
-            padding: 0.2rem 0.55rem;
-            border-radius: 4px;
-            font-size: 0.72rem;
-            font-weight: 500;
-        }
-
-        .project-card .project-media {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 0.9rem;
-            border: 1px solid rgba(107, 63, 160, 0.2);
-            display: block;
-            background: #000;
-        }
-
-        .pipeline-gallery {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.7rem;
-            margin: 0 0 0.9rem;
-        }
-
-        .pipeline-gallery figure {
-            margin: 0;
-        }
-
-        .pipeline-gallery img,
-        .pipeline-gallery video {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 6px;
-            border: 1px solid rgba(107, 63, 160, 0.2);
-            background: #fff;
-        }
-
-        .pipeline-gallery figcaption {
-            font-size: 0.78rem;
-            color: #666;
-            margin-top: 0.3rem;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            .pipeline-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .project-card .project-links {
-            margin-top: 0.9rem;
-            display: flex;
-            gap: 0.6rem;
-            flex-wrap: wrap;
-        }
-
-        .project-card .project-links a {
-            color: var(--purple-light);
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 600;
-            padding: 0.35rem 0.75rem;
-            border: 1px solid var(--purple-light);
-            border-radius: 6px;
-            transition: background 0.2s, color 0.2s;
-        }
-
-        .project-card .project-links a:hover {
-            background: var(--purple);
-            color: #fff;
-            border-color: var(--purple);
-        }
-
-        /* --- SKILLS --- */
-        .skills-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid rgba(107, 63, 160, 0.1);
-        }
-
-        .skill-category h3 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--purple-light);
-        }
-
-        .skill-category .skill-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-        }
-
-        .skill-category .skill-items span {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            color: var(--text-secondary);
-            padding: 0.35rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.82rem;
-            transition: background 0.3s, color 0.3s;
-        }
-
-        .skill-category .skill-items span:hover {
-            background: rgba(107, 63, 160, 0.2);
-            color: var(--purple-light);
-            border-color: rgba(107, 63, 160, 0.4);
-        }
-
-        /* --- EDUCATION --- */
-        .education-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        .edu-card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.75rem;
-            border: 1px solid rgba(107, 63, 160, 0.1);
-        }
-
-        .edu-card .degree {
-            color: var(--purple-light);
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.3rem;
-        }
-
-        .edu-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .edu-card .institution {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .edu-card .thesis {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-            padding-left: 0.75rem;
-            border-left: 2px solid var(--purple);
-        }
-
-        .edu-card p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* --- CONTACT --- */
-        #contact {
-            text-align: center;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: var(--text-secondary);
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        .contact-link:hover {
-            color: var(--purple-light);
-            transform: translateY(-3px);
-        }
-
-        .contact-link i {
-            font-size: 1.8rem;
-            color: var(--purple-light);
-        }
-
-        .contact-link span {
-            font-size: 0.85rem;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(107, 63, 160, 0.1);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .hero-content {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 2rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-
-            .hero-tags {
-                justify-content: center;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-buttons a {
-                min-width: 200px;
-                text-align: center;
-            }
-
-            .hero-image img {
-                width: 200px;
-                height: 200px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .education-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: rgba(15, 15, 26, 0.98);
-                flex-direction: column;
-                padding: 1rem 2rem;
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .contact-links {
-                flex-wrap: wrap;
-            }
-        }
-
-        /* ---- Lightbox ---- */
-        .project-card .project-media,
-        .project-card .pipeline-gallery img,
-        .project-card .pipeline-gallery video,
-        .project-card img,
-        .project-card video,
-        .hero-image img,
-        .about-image img {
-            cursor: zoom-in;
-            transition: transform 0.15s ease;
-        }
-        .project-card .pipeline-gallery img:hover,
-        .project-card .pipeline-gallery video:hover,
-        .project-card img.project-media:hover,
-        .project-card video.project-media:hover,
-        .project-card img:hover,
-        .project-card video:hover,
-        .hero-image img:hover,
-        .about-image img:hover {
-            transform: scale(1.01);
-        }
-
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(8, 4, 20, 0.92);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            padding: 2vmin;
-            cursor: zoom-out;
-            backdrop-filter: blur(6px);
-        }
-        .lightbox.open {
-            display: flex;
-        }
-        .lightbox-content {
-            max-width: 96vw;
-            max-height: 92vh;
-            border-radius: 10px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(107, 63, 160, 0.4);
-            background: #000;
-        }
-        .lightbox video.lightbox-content {
-            max-height: 92vh;
-        }
-        .lightbox-caption {
-            position: absolute;
-            bottom: 2vmin;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.85);
-            font-size: 0.9rem;
-            padding: 0 1rem;
-            pointer-events: none;
-        }
-        .lightbox-close {
-            position: absolute;
-            top: 2vmin;
-            right: 2vmin;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            font-size: 1.4rem;
-            line-height: 1;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .lightbox-close:hover {
-            background: rgba(107, 63, 160, 0.8);
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV,SHRP@200..500,0,0..100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <!-- NAV -->
-<nav>
-    <div class="nav-container">
-        <a href="#" class="nav-logo">NS.</a>
+<nav class="nav" aria-label="Sections">
+    <div class="nav-container container">
+        <a href="#" class="nav-logo" aria-label="Nishanth Sundaran, back to top">Nishanth Sundaran</a>
         <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
@@ -874,475 +43,470 @@
             <li><a href="#education">Education</a></li>
             <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="cv.pdf" download="Nishanth_Sundaran_CV.pdf" class="nav-cv"><i class="fas fa-download"></i>&nbsp; CV</a></li>
+            <li><a href="cv.pdf" download="Nishanth_Sundaran_CV.pdf" class="nav-cv">Download CV</a></li>
         </ul>
-        <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')">
-            <span></span><span></span><span></span>
-        </div>
+        <button type="button" class="hamburger" aria-controls="navLinks" onclick="document.getElementById('navLinks').classList.toggle('active')">Menu</button>
     </div>
 </nav>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="hero">
-    <div class="hero-content">
-        <div class="hero-text">
-            <p class="greeting">Hello, I'm</p>
-            <h1>Nishanth<br><span>Sundaran</span></h1>
-            <p class="tagline">I build safe, intelligent robots that work alongside people. M.Eng. AI graduate working across collaborative robotics, humanoid autonomy, and agentic AI with vision-language models.</p>
-            <div class="hero-tags">
-                <span class="tag">ROS 2</span>
-                <span class="tag">MoveIt 2</span>
-                <span class="tag">VLM / VLA</span>
-                <span class="tag">Agentic AI</span>
-                <span class="tag">Humanoid Robotics</span>
-                <span class="tag">PyTorch</span>
-                <span class="tag">Python</span>
-                <span class="tag">ISO/TS 15066</span>
-            </div>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Get in Touch</a>
-                <a href="cv.pdf" download="Nishanth_Sundaran_CV.pdf" class="btn-secondary"><i class="fas fa-download"></i>&nbsp; Download CV</a>
-                <a href="https://www.linkedin.com/in/nishanthsundaran" target="_blank" class="btn-secondary"><i class="fab fa-linkedin"></i>&nbsp; LinkedIn</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="images/profile.png" alt="Nishanth Sundaran">
+    <figure class="hero-image" data-cloud data-loop role="img" aria-label="A Unitree G1 humanoid drawn as 13,400 points sampled from its MuJoCo model, turning slowly while a scan line passes up through it; its right hand is marked in lime">
+        <canvas aria-hidden="true"></canvas>
+        <div class="callout" data-anchor="head" aria-hidden="true"><span class="num">1.32<span class="u">&#8201;m</span></span>Unitree G1, 29 joints</div>
+        <div class="callout" data-anchor="hand" aria-hidden="true"><span class="num">17 of 20</span>walk, pick and place runs</div>
+        <figcaption class="cloud-cap">The G1 from my humanoid project, as 13,400 points <button class="btn btn--line btn--small" type="button" data-loop-toggle>Pause</button></figcaption>
+    </figure>
+    <div class="hero-text container">
+        <h1>Nishanth Sundaran</h1>
+        <p class="lead">I build safe, intelligent robots that work alongside people.</p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn">Get in touch</a>
+            <a href="cv.pdf" download="Nishanth_Sundaran_CV.pdf" class="btn btn--line">Download CV</a>
         </div>
     </div>
 </section>
 
 <!-- ABOUT -->
-<section>
-    <div id="about">
-        <div class="purple-bar"></div>
-        <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Recent M.Eng. Graduate, Robotics and AI &middot; Cham, Bavaria</p>
-        <p class="availability">Graduated 14 June 2026. Living in Germany and available immediately for full-time roles or a full-time internship leading to a permanent position.</p>
+<section class="section--l">
+    <div id="about" class="container">
+        <div class="head">
+            <h2>About me</h2>
+            <p class="lead">Recent M.Eng. graduate, robotics and AI, in Cham, Bavaria.</p>
+        </div>
         <div class="about-grid">
-            <div class="about-text">
-                <p>I am a robotics and AI engineer based in Cham, Bavaria. I recently completed my M.Eng. in Artificial Intelligence for Smart Sensors and Actuators at Technische Hochschule Deggendorf, and my focus is robots that are safe and genuinely useful around people.</p>
-                <p>My Master's thesis delivered a complete human-robot interaction stack on a UR3e cobot: a 500 Hz hybrid position-admittance controller, an ISO/TS 15066 safety layer (Speed &amp; Separation Monitoring, Power &amp; Force Limiting, Hand Guiding), and YOLOv8 human detection on an Intel RealSense D435i, built in ROS 2 Humble and MoveIt 2 and validated on real hardware.</p>
-                <p>Since then I have focused on connecting foundation models to real robot bodies: a Claude tool-use agent that turns natural-language commands into MoveIt 2 pick-and-place plans, a self-hosted Qwen2.5-VL brain that drives both the Unitree G1 and H1 humanoids through one tool interface, and a G1 motion-imitation policy trained on human motion capture in JAX and MJX.</p>
-                <p>Most recently I have been benchmarking vision-language-action models on LIBERO: reproducing SmolVLA, I traced a gap to the published result to a simulator rendering change and to open-loop action chunks, and with replanning reached 97% on held-out scenes without retraining. A short assignment teleoperating two Franka arms for robot-learning data collection at AlphaIgnis showed me how such models are trained in practice.</p>
-                <p>Before robotics I worked as a project engineer on high-voltage power grids, in data analysis at Amazon, and as a remote ML intern applying computer vision to aerial imagery. I am now looking for roles in robotics software, humanoid robotics, VLA and embodied AI, or collaborative robotics, either full-time or as a full-time internship that leads to a permanent position.</p>
-            </div>
-            <div class="about-image">
-                <figure>
-                    <img src="images/lab_setup.jpeg" alt="UR3e collaborative robot workspace">
-                    <figcaption>UR3e workspace with Robotiq 2F-140 gripper and Intel RealSense D435i</figcaption>
+            <div class="about-side">
+                <figure class="about-image">
+                    <img src="images/profile.png" width="1024" height="1024" alt="Nishanth Sundaran" loading="lazy">
                 </figure>
             </div>
+            <dl class="about-rows">
+                <div><dt>Now</dt><dd><p class="availability">Graduated 14 June 2026. Living in Germany and available immediately for full-time roles or a full-time internship leading to a permanent position.</p></dd></div>
+                <div><dt>Focus</dt><dd>I am a robotics and AI engineer based in Cham, Bavaria. I recently completed my M.Eng. in Artificial Intelligence for Smart Sensors and Actuators at Technische Hochschule Deggendorf, and my focus is robots that are safe and genuinely useful around people.</dd></div>
+                <div><dt>Thesis</dt><dd>My Master&rsquo;s thesis delivered a complete human-robot interaction stack on a UR3e cobot: a 500 Hz hybrid position-admittance controller, an ISO/TS 15066 safety layer (Speed &amp; Separation Monitoring, Power &amp; Force Limiting, Hand Guiding), and YOLOv8 human detection on an Intel RealSense D435i, built in ROS 2 Humble and MoveIt 2 and validated on real hardware.</dd></div>
+                <div><dt>Since then</dt><dd>Since then I have focused on connecting foundation models to real robot bodies: a Claude tool-use agent that turns natural-language commands into MoveIt 2 pick-and-place plans, a self-hosted Qwen2.5-VL brain that drives both the Unitree G1 and H1 humanoids through one tool interface, and a G1 motion-imitation policy trained on human motion capture in JAX and MJX.</dd></div>
+                <div><dt>Most recently</dt><dd>Most recently I have been benchmarking vision-language-action models on LIBERO: reproducing SmolVLA, I traced a gap to the published result to a simulator rendering change and to open-loop action chunks, and with replanning reached 97% on held-out scenes without retraining. A short assignment teleoperating two Franka arms for robot-learning data collection at AlphaIgnis showed me how such models are trained in practice.</dd></div>
+                <div><dt>Before robotics</dt><dd>Before robotics I worked as a project engineer on high-voltage power grids, in data analysis at Amazon, and as a remote ML intern applying computer vision to aerial imagery. I am now looking for roles in robotics software, humanoid robotics, VLA and embodied AI, or collaborative robotics, either full-time or as a full-time internship that leads to a permanent position.</dd></div>
+            </dl>
         </div>
     </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-    <div class="purple-bar"></div>
-    <h2 class="section-title">Experience</h2>
-    <p class="section-subtitle">Professional journey from power engineering to collaborative robotics</p>
-
-    <div class="timeline">
-        <div class="timeline-item">
-            <span class="date">Sep 2025 to Jun 2026</span>
-            <h3>Master's Thesis Researcher</h3>
-            <p class="company">Technische Hochschule Deggendorf (THD), Cham, Germany</p>
-            <ul>
-                <li>Developed a real-time hybrid position-admittance controller for safe physical human-robot interaction on a UR3e collaborative robot using ROS 2 and MoveIt 2</li>
-                <li>Designed and implemented an ISO/TS 15066-compliant safety system with three operational modes: Speed &amp; Separation Monitoring, Power &amp; Force Limiting, and Hand Guiding</li>
-                <li>Built a computer vision pipeline with Intel RealSense D435i for YOLOv8-based human detection, hand-eye calibration, and HSV-based object localisation with depth back-projection</li>
-                <li>Created a 13-state FSM for assistive lift-and-place tasks integrating autonomous grasping with human-guided placement via real-time force feedback</li>
-            </ul>
-            <div class="tech-tags">
-                <span>ROS 2</span><span>MoveIt 2</span><span>Python</span><span>OpenCV</span><span>YOLOv8</span><span>Intel RealSense</span><span>Gazebo</span><span>tf2</span>
+<section id="experience" class="section">
+    <div class="container">
+        <div class="head">
+            <h2>Experience</h2>
+            <p class="lead">From power engineering to collaborative robotics.</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <p class="date">Sep 2025 to Jun 2026</p>
+                <div class="role"><h3>Master&rsquo;s Thesis Researcher</h3><p class="company">Technische Hochschule Deggendorf (THD), Cham, Germany</p></div>
+                <div class="detail">
+                    <ul>
+                        <li>Developed a real-time hybrid position-admittance controller for safe physical human-robot interaction on a UR3e collaborative robot using ROS 2 and MoveIt 2</li>
+                        <li>Designed and implemented an ISO/TS 15066-compliant safety system with three operational modes: Speed &amp; Separation Monitoring, Power &amp; Force Limiting, and Hand Guiding</li>
+                        <li>Built a computer vision pipeline with Intel RealSense D435i for YOLOv8-based human detection, hand-eye calibration, and HSV-based object localisation with depth back-projection</li>
+                        <li>Created a 13-state FSM for assistive lift-and-place tasks integrating autonomous grasping with human-guided placement via real-time force feedback</li>
+                    </ul>
+                    <p class="tools">ROS 2, MoveIt 2, Python, OpenCV, YOLOv8, Intel RealSense, Gazebo, tf2</p>
+                </div>
             </div>
-        </div>
-
-        <div class="timeline-item">
-            <span class="date">Dec 2023 to Nov 2024</span>
-            <h3>Machine Learning Intern</h3>
-            <p class="company">Energy Future World, London, United Kingdom (Remote)</p>
-            <ul>
-                <li>Applied computer vision to aerial imagery for tracking renewable energy infrastructure growth, achieving 85% detection accuracy</li>
-                <li>Developed image processing algorithms (edge detection, contrast enhancement) using OpenCV</li>
-                <li>Conducted pattern analysis and model training using Scikit-learn, NumPy, and Pandas</li>
-            </ul>
-            <div class="tech-tags">
-                <span>Python</span><span>OpenCV</span><span>Scikit-learn</span><span>NumPy</span><span>Pandas</span><span>Jupyter</span>
+            <div class="timeline-item">
+                <p class="date">Dec 2023 to Nov 2024</p>
+                <div class="role"><h3>Machine Learning Intern</h3><p class="company">Energy Future World, London, United Kingdom (Remote)</p></div>
+                <div class="detail">
+                    <ul>
+                        <li>Applied computer vision to aerial imagery for tracking renewable energy infrastructure growth, achieving 85% detection accuracy</li>
+                        <li>Developed image processing algorithms (edge detection, contrast enhancement) using OpenCV</li>
+                        <li>Conducted pattern analysis and model training using Scikit-learn, NumPy, and Pandas</li>
+                    </ul>
+                    <p class="tools">Python, OpenCV, Scikit-learn, NumPy, Pandas, Jupyter</p>
+                </div>
             </div>
-        </div>
-
-        <div class="timeline-item">
-            <span class="date">Mar 2022 to Dec 2022</span>
-            <h3>Process Associate</h3>
-            <p class="company">Amazon, Bangalore, India</p>
-            <ul>
-                <li>Performed data analysis and auditing to identify process performance trends</li>
-                <li>Contributed to automation and system optimisation initiatives using data-driven forecasting</li>
-            </ul>
-        </div>
-
-        <div class="timeline-item">
-            <span class="date">May 2019 to Dec 2021</span>
-            <h3>Project Engineer</h3>
-            <p class="company">Power And Instrumentations Ltd, Gujarat, India</p>
-            <ul>
-                <li>Analysed high-voltage power grid performance data to optimise reliability and identify failure patterns</li>
-                <li>Managed cost tracking, quality control, and resource allocation across multiple project sites</li>
-            </ul>
+            <div class="timeline-item">
+                <p class="date">Mar 2022 to Dec 2022</p>
+                <div class="role"><h3>Process Associate</h3><p class="company">Amazon, Bangalore, India</p></div>
+                <div class="detail">
+                    <ul>
+                        <li>Performed data analysis and auditing to identify process performance trends</li>
+                        <li>Contributed to automation and system optimisation initiatives using data-driven forecasting</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <p class="date">May 2019 to Dec 2021</p>
+                <div class="role"><h3>Project Engineer</h3><p class="company">Power And Instrumentations Ltd, Gujarat, India</p></div>
+                <div class="detail">
+                    <ul>
+                        <li>Analysed high-voltage power grid performance data to optimise reliability and identify failure patterns</li>
+                        <li>Managed cost tracking, quality control, and resource allocation across multiple project sites</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-    <div class="purple-bar"></div>
-    <h2 class="section-title">Projects</h2>
-    <p class="section-subtitle">Academic and personal projects spanning robotics, AI, and computer vision</p>
+<section id="projects" class="section">
+    <div class="container">
+        <div class="head">
+            <h2>Projects</h2>
+            <p class="lead">Humanoids, robot learning and safe manipulation, in simulation and on real hardware.</p>
+        </div>
 
-    <div class="projects-grid">
-        <div class="project-card featured">
-            <span class="project-type">Portfolio Project</span>
-            <h3>One Brain, Many Bodies: Humanoid Autonomy Stack</h3>
-            <video class="project-media" src="images/obmb_walk_fetch.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Unitree G1 walks about three metres to a bench, stops upright, picks up a block, drops it in a bin and lowers its arm, balancing on its own legs throughout"></video>
-            <p>Cross-embodiment humanoid autonomy stack in MuJoCo, driven by a <strong>self-hosted vision-language model (Qwen2.5-VL-3B, no cloud APIs)</strong> and a compliant whole-body controller. The VLM plans at ~1 Hz via tool-calling with Set-of-Mark visual grounding; the controller executes at ~500 Hz. The same brain drives <strong>Unitree G1 and H1</strong> through one tool interface (only a per-robot config file changes); 22-DoF five-finger hands composed onto the H1 at load time via MjSpec. The G1 <strong>walks about 3 m to a bench, stops, picks a block and places it in a bin in 17 of 20 runs</strong>, using GPU-trained PPO walk-and-stop and stance policies trained on the states and arm motions the task really produces. Every policy is scored against human motion: torso lean while manipulating fell from 36&deg; to 1.7&deg;, foot lifts while standing by 97%, the gait runs at about 2 steps/s (human 1.9) with 0 falls in 30 walks, and the arm follows minimum-jerk paths.</p>
-            <div class="pipeline-gallery">
-                <figure>
-                    <video src="images/obmb_vlm_brain.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Qwen2.5-VL-3B running locally, reading a MuJoCo scene through Set-of-Mark grounding, then emitting a tool-call plan that the low-level controller executes"></video>
+        <div class="bento">
+            <article class="project-card t-lead">
+                <figure class="media media--wide" data-loop>
+                    <video src="images/obmb_walk_fetch.mp4" poster="images/posters/obmb_walk_fetch.jpg" loop muted playsinline preload="metadata" width="620" height="440" aria-label="Unitree G1 walks about three metres to a bench, stops upright, picks up a block, drops it in a bin and lowers its arm, balancing on its own legs throughout"></video>
+                    <button class="btn btn--line btn--small loop-btn" type="button" data-loop-toggle>Pause</button>
+                </figure>
+                <div class="lead-text">
+                <h3>One Brain, Many Bodies: Humanoid Autonomy Stack</h3>
+                <p>A self-hosted vision-language model plans; a compliant whole-body controller walks the Unitree G1 to a bench and fetches a block.</p>
+                <dl class="figs">
+                    <div><dt>Walk, pick and place</dt><dd class="num">17 of 20<span class="u">&#8201;runs</span></dd></div>
+                    <div><dt>Falls while walking</dt><dd class="num">0 in 30</dd></div>
+                    <div><dt>Plan and control rate</dt><dd class="num">1 / 500<span class="u">&#8201;Hz</span></dd></div>
+                </dl>
+                <details>
+                    <summary>Read the full write-up</summary>
+                    <div class="more">
+                        <p>Cross-embodiment humanoid autonomy stack in MuJoCo, driven by a <strong>self-hosted vision-language model (Qwen2.5-VL-3B, no cloud APIs)</strong> and a compliant whole-body controller. The VLM plans at ~1 Hz via tool-calling with Set-of-Mark visual grounding; the controller executes at ~500 Hz. The same brain drives <strong>Unitree G1 and H1</strong> through one tool interface (only a per-robot config file changes); 22-DoF five-finger hands composed onto the H1 at load time via MjSpec. The G1 <strong>walks about 3 m to a bench, stops, picks a block and places it in a bin in 17 of 20 runs</strong>, using GPU-trained PPO walk-and-stop and stance policies trained on the states and arm motions the task really produces. Every policy is scored against human motion: torso lean while manipulating fell from 36&deg; to 1.7&deg;, foot lifts while standing by 97%, the gait runs at about 2 steps/s (human 1.9) with 0 falls in 30 walks, and the arm follows minimum-jerk paths.</p>
+                        <p class="tools">Built with Python, PyTorch, MuJoCo, Qwen2.5-VL, PPO, tool use, Set-of-Mark, admittance control, differential IK, Unitree G1 and Unitree H1.</p>
+                    </div>
+                </details>
+                <p class="links"><a class="link" href="https://github.com/NishanthSundaran/one-brain-many-bodies" target="_blank" rel="noopener">View on GitHub</a></p>
+            </div>
+            </article>
+
+            <article class="project-card t-6">
+                <figure class="media-fig" data-loop>
+                    <div class="media media--wide">
+                    <video src="images/obmb_vlm_brain.mp4" poster="images/posters/obmb_vlm_brain.jpg" loop muted playsinline preload="metadata" width="560" height="400" aria-label="Qwen2.5-VL-3B running locally, reading a MuJoCo scene through Set-of-Mark grounding, then emitting a tool-call plan that the low-level controller executes"></video>
+                    <button class="btn btn--line btn--small loop-btn" type="button" data-loop-toggle>Pause</button>
+                    </div>
                     <figcaption>VLM planning loop, local Qwen2.5-VL with Set-of-Mark grounding</figcaption>
                 </figure>
-                <figure>
-                    <video src="images/obmb_cross_embodiment.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Same task plan running on both the Unitree G1 and the Unitree H1 with only a per-robot config file changed, illustrating the 'one brain, many bodies' concept"></video>
+            </article>
+
+            <article class="project-card t-6">
+                <figure class="media-fig" data-loop>
+                    <div class="media media--wide">
+                    <video src="images/obmb_cross_embodiment.mp4" poster="images/posters/obmb_cross_embodiment.jpg" loop muted playsinline preload="metadata" width="960" height="380" aria-label="Same task plan running on both the Unitree G1 and the Unitree H1 with only a per-robot config file changed, illustrating the one brain, many bodies concept"></video>
+                    <button class="btn btn--line btn--small loop-btn" type="button" data-loop-toggle>Pause</button>
+                    </div>
                     <figcaption>Same brain, two bodies: Unitree G1 and H1, only a config file changes</figcaption>
                 </figure>
-            </div>
-            <div class="tech-tags">
-                <span>Python</span><span>PyTorch</span><span>MuJoCo</span><span>Qwen2.5-VL</span><span>PPO</span><span>Tool Use</span><span>Set-of-Mark</span><span>Admittance Control</span><span>Differential IK</span><span>Unitree G1</span><span>Unitree H1</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/one-brain-many-bodies" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
+            </article>
 
-        <div class="project-card">
-            <span class="project-type">Portfolio Project</span>
-            <h3>Embodied LLM Agent for UR3e Pick-and-Place</h3>
-            <p>Production-pattern agentic AI product built on <strong>Claude tool-use</strong>: a natural-language command becomes a grounded robot plan through structured outputs, validation logic, and an evaluation loop. A <strong>Claude vision model</strong> reads the RealSense D435i frame and returns a JSON list of objects with pixel centres; depth + camera intrinsics back-project each one into the <code>base_link</code> frame; a <strong>Claude planner</strong> then drives an 8-tool loop (<code>describe_scene</code>, <code>pick</code>, <code>place</code>, <code>move_to</code>, <code>open_gripper</code>, <code>close_gripper</code>, <code>check_safety</code>, <code>home</code>) to execute the instruction on MoveIt 2. Built on top of my thesis's UR3e + Robotiq 2F-140 + D435i Gazebo sim, with a read-only safety gate that reuses the thesis F/T and proximity topics. The point is that the high-level reasoning (e.g. "put the red block next to the blue cup" &rarr; grasp pose &rarr; place pose) is synthesised by the LLM over real tool feedback, not a hand-written state machine.</p>
-            <div class="tech-tags">
-                <span>Claude (Anthropic API)</span><span>Tool Use</span><span>VLM</span><span>ROS 2 Humble</span><span>MoveIt 2</span><span>UR3e</span><span>Robotiq 2F-140</span><span>RealSense D435i</span><span>Gazebo</span><span>Python</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/embodied_agent" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
+            <article class="project-card t-6">
+                <figure class="media media--strip">
+                    <img src="images/g1_walk_human_vs_cycle7.gif" width="760" height="214" alt="Side-by-side comparison: LAFAN1 human motion-capture reference on the left (speed 0.49 m/s, stride 0.46 m, cadence 1.07/s) and the trained Unitree G1 policy at cycle 7 on the right (speed 0.49 m/s, stride 0.39 m, cadence 1.52/s, 4.6B training steps), both walking in MuJoCo with overlaid gait metrics" loading="lazy">
+                </figure>
+                <h3>G1 Motion Imitation: Learning Human Gait from Motion Capture</h3>
+                <dl class="figs">
+                    <div><dt>Speed, robot and human</dt><dd class="num">0.48 / 0.49<span class="u">&#8201;m/s</span></dd></div>
+                    <div><dt>Cadence</dt><dd class="num">1.09 / 1.07<span class="u">&#8201;/s</span></dd></div>
+                    <div><dt>Stride</dt><dd class="num">0.43 / 0.46<span class="u">&#8201;m</span></dd></div>
+                </dl>
+                <details>
+                    <summary>Read the full write-up</summary>
+                    <div class="more">
+                        <p>DeepMimic-style motion imitation training the <strong>Unitree G1</strong> to track <strong>LAFAN1 human mocap</strong>, running in JAX and MJX with PPO on a 6 GB laptop GPU at ~30,000 env-steps/s (9x the CPU baseline); 5.8B total training steps across 13 measured cycles. The resulting gait sits within 2 to 7% of the human reference on speed (0.48 vs 0.49 m/s), cadence (1.09 vs 1.07/s), stride (0.43 vs 0.46 m) and pelvis bounce. Found that PD position control reached in 5M steps what the reference torque-control recipe needed 300M for (~60x sample efficiency), and shipped four undocumented framework fixes upstream, including a silent JAX-scalar vs MuJoCo-enum bug that had been blocking every dataset load.</p>
+                        <p class="tools">Built with JAX, MJX, PPO, DeepMimic, LAFAN1 mocap, Unitree G1, MuJoCo and Python.</p>
+                    </div>
+                </details>
+                <p class="links"><a class="link" href="https://github.com/NishanthSundaran/g1-motion-imitation" target="_blank" rel="noopener">View on GitHub</a></p>
+            </article>
 
-        <div class="project-card">
-            <div>
-                <span class="project-type">Master's Thesis &middot; Demo</span>
-                <h3>Human-Robot Interaction with Force Feedback in Collaborative Tasks</h3>
-                <p>Complete HRI framework on a UR3e cobot: hybrid admittance control, ISO/TS 15066 safety (SSM, PFL, Hand Guiding), YOLOv8 human detection with Intel RealSense D435i, and a 13-state FSM for assistive manipulation.</p>
-                <div class="tech-tags">
-                    <span>ROS 2</span><span>MoveIt 2</span><span>YOLOv8</span><span>Python</span><span>Gazebo</span><span>ISO/TS 15066</span><span>UR3e</span><span>Intel RealSense</span>
+            <article class="project-card t-6">
+                <figure class="media media--wide" data-loop>
+                    <video src="images/slam_nav_bot_demo.mp4" poster="images/posters/slam_nav_bot_demo.jpg" loop muted playsinline preload="none" width="1266" height="720" aria-label="Screencast of the robot autonomously navigating the warehouse world in Gazebo with RViz showing the planned path and costmaps"></video>
+                    <button class="btn btn--line btn--small loop-btn" type="button" data-loop-toggle>Pause</button>
+                </figure>
+                <h3>Autonomous Mobile Robot with SLAM &amp; Nav2</h3>
+                <p>Four-wheeled LiDAR robot rebuilt on ROS 2 Humble with slam_toolbox and a full Nav2 stack. In a cluttered warehouse: 3/3 goals reached, 0 collisions, 0 recoveries.</p>
+                <details>
+                    <summary>Read the full write-up</summary>
+                    <div class="more">
+                        <p>Four-wheeled mobile robot with a 2D LiDAR, rebuilt from scratch on ROS 2 Humble as a solo portfolio piece. Runs <strong>slam_toolbox</strong> for online SLAM and a full <strong>Nav2</strong> stack (AMCL, NavFn A*, DWB local planner, behaviour-tree navigator) for autonomous goal-to-pose navigation on the saved map. Verified in a cluttered warehouse: 3/3 goals reached, 0 collisions, 0 recoveries on the final tuning pass.</p>
+                        <p class="tools">Built with ROS 2 Humble, Nav2, slam_toolbox, Gazebo Classic, AMCL, DWB, URDF/Xacro and Python launch files.</p>
+                    </div>
+                </details>
+                <p class="links"><a class="link" href="https://github.com/NishanthSundaran/SLAM_nav_bot" target="_blank" rel="noopener">View on GitHub</a></p>
+            </article>
+
+            <article class="project-card t-6">
+                <h3>Embodied LLM Agent for UR3e Pick-and-Place</h3>
+                <p>A Claude vision model finds the objects in the RealSense frame; a Claude planner turns a sentence into MoveIt 2 actions through eight tools, behind a read-only safety gate.</p>
+                <ul class="toolset" aria-label="The eight tools">
+                    <li><code>describe_scene</code></li><li><code>pick</code></li><li><code>place</code></li><li><code>move_to</code></li><li><code>open_gripper</code></li><li><code>close_gripper</code></li><li><code>check_safety</code></li><li><code>home</code></li>
+                </ul>
+                <details>
+                    <summary>Read the full write-up</summary>
+                    <div class="more">
+                        <p>Production-pattern agentic AI product built on <strong>Claude tool-use</strong>: a natural-language command becomes a grounded robot plan through structured outputs, validation logic, and an evaluation loop. A <strong>Claude vision model</strong> reads the RealSense D435i frame and returns a JSON list of objects with pixel centres; depth + camera intrinsics back-project each one into the <code>base_link</code> frame; a <strong>Claude planner</strong> then drives an 8-tool loop to execute the instruction on MoveIt 2. Built on top of my thesis&rsquo;s UR3e + Robotiq 2F-140 + D435i Gazebo sim, with a read-only safety gate that reuses the thesis F/T and proximity topics. The point is that the high-level reasoning (e.g. &ldquo;put the red block next to the blue cup&rdquo;, then a grasp pose, then a place pose) is synthesised by the LLM over real tool feedback, not a hand-written state machine.</p>
+                        <p class="tools">Built with Claude (Anthropic API), tool use, VLM, ROS 2 Humble, MoveIt 2, UR3e, Robotiq 2F-140, RealSense D435i, Gazebo and Python.</p>
+                    </div>
+                </details>
+                <p class="links"><a class="link" href="https://github.com/NishanthSundaran/embodied_agent" target="_blank" rel="noopener">View on GitHub</a></p>
+            </article>
+
+            <article class="project-card t-6">
+                <div class="gallery">
+                    <figure>
+                        <img src="images/aqi_forecast.png" width="1500" height="1100" alt="Streamlit app showing the forecast tab: date picker, CPCB versus SARIMA AQI metrics side by side, and a per-pollutant forecast table with units" loading="lazy">
+                        <figcaption>Forecast tab: month picker, SARIMA, CPCB AQI</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="images/aqi_calculator.png" width="1500" height="1100" alt="Streamlit app showing the calculator tab: six numeric inputs for pollutants, live colour-coded AQI banner, dominant pollutant readout, and a sub-index table" loading="lazy">
+                        <figcaption>Calculator tab: live sub-indices and dominant pollutant</figcaption>
+                    </figure>
                 </div>
-                <a href="https://github.com/NishanthSundaran/Human-Robot-Interaction-with-Force-Feedback-in-Collaborative-Tasks" target="_blank" class="project-github-link">
-                    <i class="fab fa-github"></i>&nbsp; View on GitHub
-                </a>
-            </div>
-            <video class="project-video" controls preload="metadata" poster="images/lab_setup.jpeg">
-                <source src="videos/thesis_demo.webm" type="video/webm">
-                Your browser does not support the video tag.
-            </video>
+                <h3>Air Quality Index Prediction &amp; Forecasting for Chennai</h3>
+                <p>Seven SARIMA models feed monthly pollutant forecasts into the Indian CPCB sub-index formula, served as a Streamlit web app.</p>
+                <details>
+                    <summary>Read the full write-up</summary>
+                    <div class="more">
+                        <p>Seven independent <strong>SARIMA</strong> models (PM2.5, PM10, NO<sub>2</sub>, SO<sub>2</sub>, O<sub>3</sub>, CO, and overall AQI) trained on the Kaggle <em>Air Quality in India</em> dataset, feeding monthly pollutant forecasts into the <strong>Indian CPCB sub-index formula</strong> <code>I = ((I<sub>HI</sub>&minus;I<sub>LO</sub>)/(BP<sub>HI</sub>&minus;BP<sub>LO</sub>))(C<sub>p</sub>&minus;BP<sub>LO</sub>) + I<sub>LO</sub></code>. Overall AQI = max sub-index across pollutants, with a colour-coded six-category severity banner and health advice. The original Tkinter windows were rewritten as a single <strong>Streamlit web app</strong> with a forecast-by-month tab and a live AQI calculator tab (dominant-pollutant readout, CSV export, expandable CPCB breakpoint reference).</p>
+                        <p class="tools">Built with Python, SARIMA, statsmodels, Streamlit, Pandas, time-series forecasting and the CPCB India standard.</p>
+                    </div>
+                </details>
+                <p class="links">
+                    <a class="link" href="https://aqipredictionnishanth.streamlit.app/" target="_blank" rel="noopener">Open the live demo</a>
+                    <a class="link" href="https://github.com/NishanthSundaran/AQI_prediction" target="_blank" rel="noopener">View on GitHub</a>
+                </p>
+            </article>
         </div>
 
-        <div class="project-card">
-            <span class="project-type">Portfolio Project</span>
-            <h3>G1 Motion Imitation: Learning Human Gait from Motion Capture</h3>
-            <img src="images/g1_walk_human_vs_cycle7.gif" alt="Side-by-side comparison: LAFAN1 human motion-capture reference on the left (speed 0.49 m/s, stride 0.46 m, cadence 1.07/s) and the trained Unitree G1 policy at cycle 7 on the right (speed 0.49 m/s, stride 0.39 m, cadence 1.52/s, 4.6B training steps), both walking in MuJoCo with overlaid gait metrics" class="project-media" loading="lazy">
-            <p>DeepMimic-style motion imitation training the <strong>Unitree G1</strong> to track <strong>LAFAN1 human mocap</strong>, running in JAX and MJX with PPO on a 6 GB laptop GPU at ~30,000 env-steps/s (9x the CPU baseline); 5.8B total training steps across 13 measured cycles. The resulting gait sits within 2 to 7% of the human reference on speed (0.48 vs 0.49 m/s), cadence (1.09 vs 1.07/s), stride (0.43 vs 0.46 m) and pelvis bounce. Found that PD position control reached in 5M steps what the reference torque-control recipe needed 300M for (~60x sample efficiency), and shipped four undocumented framework fixes upstream, including a silent JAX-scalar vs MuJoCo-enum bug that had been blocking every dataset load.</p>
-            <div class="tech-tags">
-                <span>JAX</span><span>MJX</span><span>PPO</span><span>DeepMimic</span><span>LAFAN1 Mocap</span><span>Unitree G1</span><span>MuJoCo</span><span>Python</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/g1-motion-imitation" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Case Study</span>
-            <h3>Autonomous Mobile Robot with SLAM &amp; Nav2</h3>
-            <video class="project-media" src="images/slam_nav_bot_demo.mp4" autoplay loop muted playsinline preload="metadata" aria-label="Screencast of the robot autonomously navigating the warehouse world in Gazebo with RViz showing the planned path and costmaps"></video>
-            <p>Four-wheeled mobile robot with a 2D LiDAR, rebuilt from scratch on ROS 2 Humble as a solo portfolio piece. Runs <strong>slam_toolbox</strong> for online SLAM and a full <strong>Nav2</strong> stack (AMCL, NavFn A*, DWB local planner, behaviour-tree navigator) for autonomous goal-to-pose navigation on the saved map. Verified in a cluttered warehouse: 3/3 goals reached, 0 collisions, 0 recoveries on the final tuning pass.</p>
-            <div class="tech-tags">
-                <span>ROS 2 Humble</span><span>Nav2</span><span>slam_toolbox</span><span>Gazebo Classic</span><span>AMCL</span><span>DWB</span><span>URDF/Xacro</span><span>Python Launch</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/SLAM_nav_bot" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Case Study</span>
-            <h3>Air Quality Index Prediction &amp; Forecasting for Chennai</h3>
-            <p>Seven independent <strong>SARIMA</strong> models (PM2.5, PM10, NO<sub>2</sub>, SO<sub>2</sub>, O<sub>3</sub>, CO, and overall AQI) trained on the Kaggle <em>Air Quality in India</em> dataset, feeding monthly pollutant forecasts into the <strong>Indian CPCB sub-index formula</strong> <code>I = ((I<sub>HI</sub>−I<sub>LO</sub>)/(BP<sub>HI</sub>−BP<sub>LO</sub>))(C<sub>p</sub>−BP<sub>LO</sub>) + I<sub>LO</sub></code>. Overall AQI = max sub-index across pollutants, with a colour-coded six-category severity banner and health advice. The original Tkinter windows were rewritten as a single <strong>Streamlit web app</strong> with a forecast-by-month tab and a live AQI calculator tab (dominant-pollutant readout, CSV export, expandable CPCB breakpoint reference).</p>
-            <div class="pipeline-gallery">
-                <figure>
-                    <img src="images/aqi_forecast.png" alt="Streamlit app showing the forecast tab: date picker, CPCB versus SARIMA AQI metrics side by side, and a per-pollutant forecast table with units" loading="lazy">
-                    <figcaption>Forecast tab: month picker &rarr; SARIMA &rarr; CPCB AQI</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/aqi_calculator.png" alt="Streamlit app showing the calculator tab: six numeric inputs for pollutants, live colour-coded AQI banner, dominant pollutant readout, and a sub-index table" loading="lazy">
-                    <figcaption>Calculator tab: live sub-indices &amp; dominant pollutant</figcaption>
-                </figure>
-            </div>
-            <div class="tech-tags">
-                <span>Python</span><span>SARIMA</span><span>statsmodels</span><span>Streamlit</span><span>Pandas</span><span>Time-series forecasting</span><span>CPCB India standard</span>
-            </div>
-            <div class="project-links">
-                <a href="https://aqipredictionnishanth.streamlit.app/" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                <a href="https://github.com/NishanthSundaran/AQI_prediction" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Self Study</span>
-            <h3>Object Detection Using YOLO with Audio Alert</h3>
-            <p>Integrated YOLOv8 with Google text-to-speech (gTTS) and a real-time GUI for enhancing accessibility for visually impaired users with audio feedback of detected objects.</p>
-            <div class="tech-tags">
-                <span>YOLOv8</span><span>gTTS</span><span>Python</span><span>GUI</span>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Self Study</span>
-            <h3>Contour Detection Using Computer Vision</h3>
-            <p>Classical OpenCV pipeline that segments individual tablets inside a blister pack and classifies each by whether its horizontal seam edge is visible. Pipeline: Sobel-based edge exploration &rarr; Gaussian blur + adaptive thresholding to get a clean binary mask &rarr; Canny edges on the cropped region &rarr; <code>cv2.findContours</code> with area filtering to isolate tablets &rarr; per-contour horizontal-edge check drives red / green bounding-box classification. Built without any deep learning, the point was to reason about edges, thresholds, and morphology from first principles.</p>
-            <div class="pipeline-gallery">
-                <figure>
-                    <img src="images/contour_01_input.png" alt="Original input: pack of tablets" loading="lazy">
-                    <figcaption>1. Input: tablet pack</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/contour_02_sobel.png" alt="Sobel vertical and horizontal edge filters applied to the grayscale tablet pack" loading="lazy">
-                    <figcaption>2. Sobel: vertical &amp; horizontal edges</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/contour_03_threshold.png" alt="Adaptive threshold, Gaussian blur, and threshold-on-blur outputs side by side" loading="lazy">
-                    <figcaption>3. Preprocess: threshold + blur</figcaption>
-                </figure>
-                <figure>
-                    <img src="images/contour_04_result.png" alt="Final result showing green bounding boxes on tablets with visible horizontal seam edges and red bounding boxes on tablets without" loading="lazy">
-                    <figcaption>4. Result: green = seam edge, red = no seam</figcaption>
-                </figure>
-            </div>
-            <div class="tech-tags">
-                <span>OpenCV</span><span>Python</span><span>Sobel</span><span>Canny</span><span>Adaptive Thresholding</span><span>Contour Analysis</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/Contour-Detection-Using-Computer-Vision" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Self Study</span>
-            <h3>Point Operations: Brightness, Contrast &amp; Inversion</h3>
-            <p>Implemented the core pixel-wise intensity transforms from first principles: the affine map <code>g(x,y) = &alpha;&middot;f(x,y) + &beta;</code> drives darken, lighten, low-contrast, and high-contrast variants; a bitwise NOT gives the photographic negative; and a weighted RGB&rarr;luminance projection <code>0.3R + 0.6G + 0.1B</code> produces grayscale. All seven outputs (original, darken, lighten, invert, low-contrast, high-contrast, grayscale) are rendered side by side. No library-level helpers beyond the numpy clip and the OpenCV colour-space wrappers.</p>
-            <img src="images/point_ops_result.png" alt="Seven-panel comparison of a sports photograph showing original, darken, lighten, invert, low-contrast, high-contrast, and grayscale variants" class="project-media" loading="lazy">
-            <div class="tech-tags">
-                <span>OpenCV</span><span>NumPy</span><span>Python</span><span>Point Operations</span><span>Image Processing</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/Point-Operations-Computer-Vision" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <span class="project-type">Self Study</span>
-            <h3>Histogram Equalization from Scratch</h3>
-            <p>Reimplemented global histogram equalization without using <code>cv2.equalizeHist</code>: compute the 256-bin intensity histogram, derive the PDF and then the CDF, and use <code>np.interp</code> to remap every pixel through the CDF &times; 255 lookup. Applied to an under-exposed sunset photograph where most of the intensity mass sits near zero; the equalized output spreads that narrow range across the full 0-255 gamut, pulling foliage texture and cloud structure out of the near-black regions.</p>
-            <img src="images/hist_eq_result.png" alt="Side-by-side comparison of an under-exposed sunset photograph and the same image after manual histogram equalization, showing recovered detail in the sky and foliage" class="project-media" loading="lazy">
-            <div class="tech-tags">
-                <span>NumPy</span><span>Matplotlib</span><span>Python</span><span>Histogram Equalization</span><span>Image Processing</span>
-            </div>
-            <div class="project-links">
-                <a href="https://github.com/NishanthSundaran/Histogram-Equalization-Computer-Vision" target="_blank" rel="noopener"><i class="fab fa-github"></i> View on GitHub</a>
-            </div>
-        </div>
-            <div class="project-card">
-            <span class="project-type">Bachelor's Thesis</span>
-            <h3>Implementation of MPPT on PV Cell Using Incremental Conductance Method</h3>
-            <p>Modelled a 150W PV module in MATLAB/Simulink, implemented the Incremental Conductance MPPT algorithm with a SEPIC DC-DC converter. Achieved 97%+ MPP tracking accuracy, outperforming Perturb &amp; Observe under varying irradiance.</p>
-            <div class="tech-tags">
-                <span>MATLAB</span><span>Simulink</span><span>Simscape</span><span>Power Electronics</span>
-            </div>
-        </div>
-
-</div>
+    </div>
 </section>
 
-<!-- SKILLS -->
-<section id="skills">
-    <div class="purple-bar"></div>
-    <h2 class="section-title">Technical Skills</h2>
-    <p class="section-subtitle">Tools and technologies I work with</p>
-
-    <div class="skills-categories">
-        <div class="skill-category">
-            <h3><i class="fas fa-code"></i>&nbsp; Programming &amp; Tools</h3>
-            <div class="skill-items">
-                <span>Python</span><span>C/C++</span><span>Git</span><span>Linux</span><span>VS Code</span><span>Jupyter</span>
+<!-- CASE: THE THESIS -->
+<section class="section--band" aria-labelledby="thesis-title">
+    <div class="container">
+        <article class="project-card case">
+            <h2 id="thesis-title" class="display-s">Human-Robot Interaction with Force Feedback in Collaborative Tasks</h2>
+            <p class="lead">My master&rsquo;s thesis, on a real UR3e cobot.</p>
+            <figure class="media case-video">
+                <video controls preload="metadata" poster="images/posters/thesis_demo.jpg" width="1920" height="1080">
+                    <source src="videos/thesis_demo.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+            </figure>
+            <div class="case-below">
+                <div class="case-text">
+                    <dl class="measured">
+                        <div class="ticks"><dt>Hybrid position-admittance control</dt><dd class="num">500<span class="u">&#8201;Hz</span></dd></div>
+                        <div class="ticks"><dt>ISO/TS 15066 modes: SSM, PFL, hand guiding</dt><dd class="num">3</dd></div>
+                        <div class="ticks"><dt>States in the assistive lift-and-place machine</dt><dd class="num">13</dd></div>
+                    </dl>
+                    <p>Complete HRI framework on a UR3e cobot: hybrid admittance control, ISO/TS 15066 safety (SSM, PFL, Hand Guiding), YOLOv8 human detection with Intel RealSense D435i, and a 13-state FSM for assistive manipulation.</p>
+                    <p class="tools">Built with ROS 2, MoveIt 2, YOLOv8, Python, Gazebo, ISO/TS 15066, UR3e and Intel RealSense.</p>
+                    <p class="links"><a href="https://github.com/NishanthSundaran/Human-Robot-Interaction-with-Force-Feedback-in-Collaborative-Tasks" target="_blank" class="project-github-link link">View on GitHub</a></p>
+                </div>
+                <div class="case-photo">
+                    <figure class="media">
+                        <img src="images/lab_setup.jpeg" width="1319" height="2048" alt="UR3e collaborative robot workspace" loading="lazy">
+                    </figure>
+                    <figcaption>UR3e workspace with Robotiq 2F-140 gripper and Intel RealSense D435i</figcaption>
+                </div>
             </div>
-        </div>
+        </article>
+    </div>
+</section>
 
-        <div class="skill-category">
-            <h3><i class="fas fa-robot"></i>&nbsp; Robotics &amp; Control</h3>
-            <div class="skill-items">
-                <span>ROS 2</span><span>MoveIt 2</span><span>MoveIt Servo</span><span>Admittance Control</span><span>OMPL</span><span>Pilz</span><span>SLAM</span><span>Gazebo</span><span>URDF/Xacro</span><span>tf2</span>
+<!-- EARLIER WORK -->
+<section class="section" aria-label="Earlier and self-study work">
+    <div class="container">
+        <div class="index index--first">
+            <h3>Earlier and self-study work</h3>
+            <div class="index-row">
+                <p class="ix-title">Contour Detection Using Computer Vision</p>
+                <p class="ix-kind">Self study</p>
+                <div class="ix-body">
+                    <p>Classical OpenCV pipeline that segments tablets in a blister pack and classifies each by whether its horizontal seam edge is visible, with no deep learning.</p>
+                    <details>
+                        <summary>Show the pipeline</summary>
+                        <div class="more">
+                            <p>Pipeline: Sobel-based edge exploration, then Gaussian blur + adaptive thresholding to get a clean binary mask, then Canny edges on the cropped region, then <code>cv2.findContours</code> with area filtering to isolate tablets; a per-contour horizontal-edge check drives red / green bounding-box classification. Built without any deep learning, the point was to reason about edges, thresholds, and morphology from first principles.</p>
+                            <div class="gallery">
+                                <figure><img src="images/contour_01_input.png" width="515" height="435" alt="Original input: pack of tablets" loading="lazy"><figcaption>1. Input: tablet pack</figcaption></figure>
+                                <figure><img src="images/contour_02_sobel.png" width="1182" height="388" alt="Sobel vertical and horizontal edge filters applied to the grayscale tablet pack" loading="lazy"><figcaption>2. Sobel: vertical and horizontal edges</figcaption></figure>
+                                <figure><img src="images/contour_03_threshold.png" width="1182" height="388" alt="Adaptive threshold, Gaussian blur, and threshold-on-blur outputs side by side" loading="lazy"><figcaption>3. Preprocess: threshold and blur</figcaption></figure>
+                                <figure><img src="images/contour_04_result.png" width="845" height="432" alt="Final result showing green bounding boxes on tablets with visible horizontal seam edges and red bounding boxes on tablets without" loading="lazy"><figcaption>4. Result: green for a seam edge, red for none</figcaption></figure>
+                            </div>
+                            <p class="tools">Built with OpenCV, Python, Sobel, Canny, adaptive thresholding and contour analysis.</p>
+                        </div>
+                    </details>
+                    <p class="links"><a class="link" href="https://github.com/NishanthSundaran/Contour-Detection-Using-Computer-Vision" target="_blank" rel="noopener">View on GitHub</a></p>
+                </div>
             </div>
-        </div>
-
-        <div class="skill-category">
-            <h3><i class="fas fa-brain"></i>&nbsp; AI &amp; Machine Learning</h3>
-            <div class="skill-items">
-                <span>Agentic AI</span><span>Tool Use</span><span>VLM</span><span>VLA</span><span>LLM Application Development</span><span>PyTorch</span><span>JAX</span><span>TensorFlow</span><span>Scikit-learn</span><span>Deep Learning</span><span>Reinforcement Learning (PPO)</span><span>ARIMA</span><span>SARIMA</span>
+            <div class="index-row">
+                <p class="ix-title">Point Operations: Brightness, Contrast &amp; Inversion</p>
+                <p class="ix-kind">Self study</p>
+                <div class="ix-body">
+                    <p>Pixel-wise intensity transforms from first principles: darken, lighten, contrast, negative and grayscale.</p>
+                    <details>
+                        <summary>Show the result</summary>
+                        <div class="more">
+                            <p>Implemented the core pixel-wise intensity transforms from first principles: the affine map <code>g(x,y) = &alpha;&middot;f(x,y) + &beta;</code> drives darken, lighten, low-contrast, and high-contrast variants; a bitwise NOT gives the photographic negative; and a weighted RGB to luminance projection <code>0.3R + 0.6G + 0.1B</code> produces grayscale. All seven outputs (original, darken, lighten, invert, low-contrast, high-contrast, grayscale) are rendered side by side. No library-level helpers beyond the numpy clip and the OpenCV colour-space wrappers.</p>
+                            <img src="images/point_ops_result.png" width="1727" height="590" alt="Seven-panel comparison of a sports photograph showing original, darken, lighten, invert, low-contrast, high-contrast, and grayscale variants" class="cert-img" loading="lazy">
+                            <p class="tools">Built with OpenCV, NumPy and Python.</p>
+                        </div>
+                    </details>
+                    <p class="links"><a class="link" href="https://github.com/NishanthSundaran/Point-Operations-Computer-Vision" target="_blank" rel="noopener">View on GitHub</a></p>
+                </div>
             </div>
-        </div>
-
-        <div class="skill-category">
-            <h3><i class="fas fa-eye"></i>&nbsp; Computer Vision &amp; Sensors</h3>
-            <div class="skill-items">
-                <span>OpenCV</span><span>YOLOv8</span><span>Intel RealSense D435i</span><span>Depth Estimation</span><span>HSV Segmentation</span><span>Hand-Eye Calibration</span><span>Point Clouds</span>
+            <div class="index-row">
+                <p class="ix-title">Histogram Equalization from Scratch</p>
+                <p class="ix-kind">Self study</p>
+                <div class="ix-body">
+                    <p>Global histogram equalization without <code>cv2.equalizeHist</code>, through the PDF and CDF.</p>
+                    <details>
+                        <summary>Show the result</summary>
+                        <div class="more">
+                            <p>Reimplemented global histogram equalization without using <code>cv2.equalizeHist</code>: compute the 256-bin intensity histogram, derive the PDF and then the CDF, and use <code>np.interp</code> to remap every pixel through the CDF &times; 255 lookup. Applied to an under-exposed sunset photograph where most of the intensity mass sits near zero; the equalized output spreads that narrow range across the full 0 to 255 gamut, pulling foliage texture and cloud structure out of the near-black regions.</p>
+                            <img src="images/hist_eq_result.png" width="841" height="354" alt="Side-by-side comparison of an under-exposed sunset photograph and the same image after manual histogram equalization, showing recovered detail in the sky and foliage" class="cert-img" loading="lazy">
+                            <p class="tools">Built with NumPy, Matplotlib and Python.</p>
+                        </div>
+                    </details>
+                    <p class="links"><a class="link" href="https://github.com/NishanthSundaran/Histogram-Equalization-Computer-Vision" target="_blank" rel="noopener">View on GitHub</a></p>
+                </div>
             </div>
-        </div>
-
-        <div class="skill-category">
-            <h3><i class="fas fa-shield-alt"></i>&nbsp; Safety &amp; Standards</h3>
-            <div class="skill-items">
-                <span>ISO/TS 15066</span><span>SSM</span><span>PFL</span><span>Hand Guiding</span><span>Risk Assessment</span><span>Functional Safety</span>
+            <div class="index-row">
+                <p class="ix-title">Object Detection Using YOLO with Audio Alert</p>
+                <p class="ix-kind">Self study</p>
+                <div class="ix-body">
+                    <p>Integrated YOLOv8 with Google text-to-speech (gTTS) and a real-time GUI for enhancing accessibility for visually impaired users with audio feedback of detected objects.</p>
+                    <p class="tools">Built with YOLOv8, gTTS and Python.</p>
+                </div>
             </div>
-        </div>
-
-        <div class="skill-category">
-            <h3><i class="fas fa-chart-bar"></i>&nbsp; Data &amp; Analysis</h3>
-            <div class="skill-items">
-                <span>NumPy</span><span>Pandas</span><span>Matplotlib</span><span>MATLAB</span><span>Simulink</span><span>Feature Engineering</span>
+            <div class="index-row">
+                <p class="ix-title">Implementation of MPPT on PV Cell Using Incremental Conductance Method</p>
+                <p class="ix-kind">Bachelor&rsquo;s thesis</p>
+                <div class="ix-body">
+                    <p>Modelled a 150W PV module in MATLAB/Simulink, implemented the Incremental Conductance MPPT algorithm with a SEPIC DC-DC converter. Achieved 97%+ MPP tracking accuracy, outperforming Perturb &amp; Observe under varying irradiance.</p>
+                    <p class="tools">Built with MATLAB, Simulink and Simscape.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- EDUCATION -->
-<section id="education">
-    <div class="purple-bar"></div>
-    <h2 class="section-title">Education</h2>
-    <p class="section-subtitle">Academic background in AI and electrical engineering</p>
-
-    <div class="education-cards">
-        <div class="edu-card">
-            <span class="degree">Master of Engineering</span>
-            <h3>Artificial Intelligence for Smart Sensors and Actuators</h3>
-            <p class="institution">Technische Hochschule Deggendorf (DIT), Cham, Germany &bull; 2022 to 2026</p>
-            <div class="thesis">"Human-Robot Interaction with Force Feedback in Collaborative Tasks"</div>
-            <p>Specialisation: Machine Learning, Deep Learning, Computer Vision, Autonomous Systems, IoT, Robotics</p>
+<!-- SKILLS AND LANGUAGES -->
+<section id="skills" class="section">
+    <div class="container">
+        <div class="head">
+            <h2>Technical skills</h2>
+            <p class="lead">Tools and technologies I work with.</p>
         </div>
-
-        <div class="edu-card">
-            <span class="degree">Bachelor of Engineering</span>
-            <h3>Electrical and Electronics Engineering</h3>
-            <p class="institution">University of Calicut, Kerala, India</p>
-            <div class="thesis">"Implementation of MPPT on PV Cell Using Incremental Conductance Method"</div>
-            <p>Specialisation: Digital Signal Processing, Digital System Design, Power Electronics, IoT</p>
-        </div>
+        <table class="skills-table">
+            <tbody>
+                <tr><th scope="row">Programming and tools</th><td>Python, C/C++, Git, Linux, VS Code, Jupyter</td></tr>
+                <tr><th scope="row">Robotics and control</th><td>ROS 2, MoveIt 2, MoveIt Servo, admittance control, OMPL, Pilz, SLAM, Gazebo, URDF/Xacro, tf2, humanoid robotics</td></tr>
+                <tr><th scope="row">AI and machine learning</th><td>Agentic AI, tool use, VLM, VLA, LLM application development, PyTorch, JAX, TensorFlow, Scikit-learn, deep learning, reinforcement learning (PPO), ARIMA, SARIMA</td></tr>
+                <tr><th scope="row">Computer vision and sensors</th><td>OpenCV, YOLOv8, Intel RealSense D435i, depth estimation, HSV segmentation, hand-eye calibration, point clouds</td></tr>
+                <tr><th scope="row">Safety and standards</th><td>ISO/TS 15066, SSM, PFL, hand guiding, risk assessment, functional safety</td></tr>
+                <tr><th scope="row">Data and analysis</th><td>NumPy, Pandas, Matplotlib, MATLAB, Simulink, feature engineering</td></tr>
+            </tbody>
+        </table>
+        <h3 class="subhead">Languages</h3>
+        <dl class="langs">
+            <div><dt>English</dt><dd>Fluent</dd></div>
+            <div><dt>German</dt><dd>A2</dd></div>
+            <div><dt>Malayalam</dt><dd>Native</dd></div>
+            <div><dt>Tamil</dt><dd>Fluent</dd></div>
+            <div><dt>Hindi</dt><dd>Fluent</dd></div>
+        </dl>
     </div>
 </section>
 
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-    <div class="purple-bar"></div>
-    <h2 class="section-title">Certifications</h2>
-    <p class="section-subtitle">External credentials backing the skill set</p>
-
-    <div class="education-cards">
-        <div class="edu-card">
-            <span class="degree">Vanderbilt University</span>
-            <h3>AI Agents and Agentic AI with Python &amp; Generative AI</h3>
-            <p class="institution">August 2026</p>
-            <img src="images/cert_vanderbilt_agentic_ai.png" alt="Vanderbilt University certificate for AI Agents and Agentic AI with Python and Generative AI, issued to Nishanth Sundaran, August 2026" style="width:100%; margin:0.9rem 0; border-radius:8px; border:1px solid rgba(107,63,160,0.3);" loading="lazy">
-            <p><strong>Skills:</strong> Agentic AI, Tool Use, Function Calling, AI Agent Architecture, LLM Application Development, Prompt Engineering, Prompt Patterns, OpenAI API, Retrieval-Augmented Generation (RAG), Python for AI.</p>
-            <div class="project-links" style="margin-top:0.75rem;">
-                <a href="https://coursera.org/verify/M5M2XTC1FN5O" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Verify credential</a>
+<!-- EDUCATION AND CERTIFICATIONS -->
+<section id="education" class="section">
+    <div class="container edu">
+        <div class="edu-col">
+            <h2>Education</h2>
+            <div class="edu-card">
+                <p class="degree">Master of Engineering, 2022 to 2026</p>
+                <h3>Artificial Intelligence for Smart Sensors and Actuators</h3>
+                <p class="muted">Technische Hochschule Deggendorf (DIT), Cham, Germany</p>
+                <p class="thesis">&ldquo;Human-Robot Interaction with Force Feedback in Collaborative Tasks&rdquo;</p>
+                <p class="small">Specialisation: Machine Learning, Deep Learning, Computer Vision, Autonomous Systems, IoT, Robotics</p>
+            </div>
+            <div class="edu-card">
+                <p class="degree">Bachelor of Engineering</p>
+                <h3>Electrical and Electronics Engineering</h3>
+                <p class="muted">University of Calicut, Kerala, India</p>
+                <p class="thesis">&ldquo;Implementation of MPPT on PV Cell Using Incremental Conductance Method&rdquo;</p>
+                <p class="small">Specialisation: Digital Signal Processing, Digital System Design, Power Electronics, IoT</p>
             </div>
         </div>
-
-        <div class="edu-card">
-            <span class="degree">IBM</span>
-            <h3>Machine Learning with Python</h3>
-            <p class="institution">September 2026</p>
-            <img src="images/cert_ibm_ml_python.png" alt="IBM certificate for Machine Learning with Python, issued to Nishanth Sundaran, September 2026" style="width:100%; margin:0.9rem 0; border-radius:8px; border:1px solid rgba(107,63,160,0.3);" loading="lazy">
-            <p><strong>Skills:</strong> Supervised Learning, Unsupervised Learning, Classification (Logistic Regression, KNN, SVM, Decision Trees), Regression (Linear, Non-linear), Clustering (k-means, Hierarchical, DBSCAN), Recommender Systems, Model Evaluation (Cross-validation, Precision/Recall/F1), Scikit-learn, Pandas.</p>
-            <div class="project-links" style="margin-top:0.75rem;">
-                <a href="https://coursera.org/verify/RQQD0CVOYWI2" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Verify credential</a>
+        <div class="edu-col" id="certifications">
+            <h2>Certifications</h2>
+            <div class="certs">
+                <div class="edu-card">
+                    <p class="degree">Vanderbilt University, August 2026</p>
+                    <h3>AI Agents and Agentic AI with Python &amp; Generative AI</h3>
+                    <img src="images/cert_vanderbilt_agentic_ai.png" width="1651" height="1275" class="cert-img" alt="Vanderbilt University certificate for AI Agents and Agentic AI with Python and Generative AI, issued to Nishanth Sundaran, August 2026" loading="lazy">
+                    <details>
+                        <summary>Skills covered</summary>
+                        <div class="more"><p class="small">Agentic AI, Tool Use, Function Calling, AI Agent Architecture, LLM Application Development, Prompt Engineering, Prompt Patterns, OpenAI API, Retrieval-Augmented Generation (RAG), Python for AI.</p></div>
+                    </details>
+                    <p><a class="link" href="https://coursera.org/verify/M5M2XTC1FN5O" target="_blank" rel="noopener">Verify credential</a></p>
+                </div>
+                <div class="edu-card">
+                    <p class="degree">IBM, September 2026</p>
+                    <h3>Machine Learning with Python</h3>
+                    <img src="images/cert_ibm_ml_python.png" width="1651" height="1275" class="cert-img" alt="IBM certificate for Machine Learning with Python, issued to Nishanth Sundaran, September 2026" loading="lazy">
+                    <details>
+                        <summary>Skills covered</summary>
+                        <div class="more"><p class="small">Supervised Learning, Unsupervised Learning, Classification (Logistic Regression, KNN, SVM, Decision Trees), Regression (Linear, Non-linear), Clustering (k-means, Hierarchical, DBSCAN), Recommender Systems, Model Evaluation (Cross-validation, Precision/Recall/F1), Scikit-learn, Pandas.</p></div>
+                    </details>
+                    <p><a class="link" href="https://coursera.org/verify/RQQD0CVOYWI2" target="_blank" rel="noopener">Verify credential</a></p>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- LANGUAGES -->
-<section>
-    <div class="purple-bar"></div>
-    <h2 class="section-title">Languages</h2>
-    <div style="display:flex; gap:2rem; flex-wrap:wrap; margin-top:1rem;">
-        <div style="text-align:center;">
-            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">English</div>
-            <div style="color:var(--text-muted); font-size:0.85rem;">Fluent</div>
-        </div>
-        <div style="text-align:center;">
-            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">German</div>
-            <div style="color:var(--text-muted); font-size:0.85rem;">A2</div>
-        </div>
-        <div style="text-align:center;">
-            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">Malayalam</div>
-            <div style="color:var(--text-muted); font-size:0.85rem;">Native</div>
-        </div>
-        <div style="text-align:center;">
-            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">Tamil</div>
-            <div style="color:var(--text-muted); font-size:0.85rem;">Fluent</div>
-        </div>
-        <div style="text-align:center;">
-            <div style="font-size:1.5rem; font-weight:700; color:var(--purple-light);">Hindi</div>
-            <div style="color:var(--text-muted); font-size:0.85rem;">Fluent</div>
         </div>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-    <div class="purple-bar" style="margin:0 auto;"></div>
-    <h2 class="section-title">Get in Touch</h2>
-    <p class="section-subtitle">Available immediately for robotics and AI engineering roles in Germany, full-time or as a full-time internship. Based in Cham, Bavaria, and open to relocation and hybrid or remote arrangements.</p>
-
-    <div class="contact-links">
-        <a href="mailto:sundharnishanth@gmail.com" class="contact-link">
-            <i class="fas fa-envelope"></i>
-            <span>sundharnishanth@gmail.com</span>
-        </a>
-        <a href="https://www.linkedin.com/in/nishanthsundaran" target="_blank" class="contact-link">
-            <i class="fab fa-linkedin"></i>
-            <span>LinkedIn</span>
-        </a>
-        <a href="tel:+4915156496524" class="contact-link">
-            <i class="fas fa-phone"></i>
-            <span>+49 151 5649 6524</span>
-        </a>
+<section id="contact" class="section--l">
+    <div class="container contact-grid">
+        <h2>Get in touch</h2>
+        <p class="lead">Available immediately for robotics and AI engineering roles in Germany, full-time or as a full-time internship. Based in Cham, Bavaria, and open to relocation and hybrid or remote arrangements.</p>
+        <ul class="contact-links">
+            <li><a href="mailto:sundharnishanth@gmail.com" class="contact-link"><span class="k">Email</span><span class="v">sundharnishanth@gmail.com</span></a></li>
+            <li><a href="https://www.linkedin.com/in/nishanthsundaran" target="_blank" class="contact-link"><span class="k">LinkedIn</span><span class="v">in/nishanthsundaran</span></a></li>
+            <li><a href="tel:+4915156496524" class="contact-link"><span class="k">Phone</span><span class="v">+49 151 5649 6524</span></a></li>
+        </ul>
     </div>
 </section>
 
-<footer>
-    <p>&copy; 2026 Nishanth Sundaran. All rights reserved.</p>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p class="mast" aria-hidden="true">Nishanth Sundaran</p>
+        <div class="footer-row">
+            <ul>
+                <li><a class="link" href="https://www.linkedin.com/in/nishanthsundaran" target="_blank" rel="noopener">LinkedIn</a></li>
+                <li><a class="link" href="mailto:sundharnishanth@gmail.com">Email</a></li>
+                <li><a class="link" href="cv.pdf" download="Nishanth_Sundaran_CV.pdf">Download CV</a></li>
+            </ul>
+            <p>&copy; 2026 Nishanth Sundaran</p>
+        </div>
+    </div>
 </footer>
 
 <!-- Lightbox overlay -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged media">
-    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
     <div id="lightbox-slot"></div>
     <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
@@ -1408,5 +572,25 @@
     })();
 </script>
 
+<script>
+    // Loops (videos and the cloud) wait until visible, stop off screen, pause on hover and focus, and carry a pause control.
+    document.querySelectorAll('[data-loop]').forEach((el) => {
+        const btn = el.querySelector('[data-loop-toggle]');
+        const s = { seen: false, hover: false, focus: false, held: matchMedia('(prefers-reduced-motion: reduce)').matches };
+        const sync = () => {
+            const run = s.seen && !s.hover && !s.focus && !s.held;
+            el.classList.toggle('is-running', run);
+            el.querySelectorAll('video').forEach((v) => (run ? v.play().catch(() => {}) : v.pause()));
+            if (btn) btn.textContent = s.held ? 'Play' : 'Pause';
+            el.dispatchEvent(new CustomEvent('loopstate', { detail: run }));
+        };
+        if (btn) btn.addEventListener('click', (e) => { e.stopPropagation(); s.held = !s.held; sync(); });
+        [['pointerenter', 'hover', true], ['pointerleave', 'hover', false], ['focusin', 'focus', true], ['focusout', 'focus', false]].forEach(([t, k, v]) => el.addEventListener(t, () => { s[k] = v; sync(); }));
+        new IntersectionObserver(([e]) => { s.seen = e.isIntersecting; sync(); }).observe(el);
+    });
+</script>
+
+<script src="images/g1_cloud.js"></script>
+<script src="cloud.js"></script>
 </body>
 </html>
