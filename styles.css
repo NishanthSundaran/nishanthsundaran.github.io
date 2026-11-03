@@ -13,6 +13,7 @@
 /* Hallmark · kept 6 GB, 30,000 env-steps/s and 2 to 7% inside each project's full write-up disclosure · the tiles show the three figures that compare, the rest stay one click away */
 /* Hallmark · waive 59 · the 73px reading is the earlier-work index list measured against the skills head, both sections keep the 144px section step · the index section has no h2 of its own */
 /* Hallmark · added 2026-11-01: LIBERO card, a t-wide variant (3:1 comparison video full width, text 7fr, figures stacked 5fr) so it does not repeat the G1 lead's split; Pause moved into the caption row so it never covers a policy */
+/* Hallmark · added 2026-11-03: planner post-training card, the same t-wide variant with a 2.8:1 two-planner video (media--pair) */
 @import url("./tokens.css");
 @import url("./base.css");
 
@@ -122,6 +123,7 @@ html:not(.js) [data-loop-toggle] { display: none; }
 .media--4x3 { aspect-ratio: 4 / 3; }
 .media--strip { aspect-ratio: 760 / 214; }
 .media--triple { aspect-ratio: 3 / 1; }
+.media--pair { aspect-ratio: 1126 / 400; }
 .t-wide { grid-column: span 12; }
 .fig-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); }
 .wide-below { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-xl); align-items: start; margin-top: var(--space-sm); }

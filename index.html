@@ -212,6 +212,34 @@
                 </div>
             </article>
 
+            <article class="project-card t-wide">
+                <figure class="media-fig" data-loop>
+                    <div class="media media--pair">
+                    <video src="images/planner_posttrain.mp4" poster="images/posters/planner_posttrain.jpg" loop muted playsinline preload="metadata" width="1126" height="400" aria-label="The same held-out task, put the blue cup in the bin, run by two planners side by side on the Unitree G1; the stock Qwen2.5-VL-3B planner keeps retrying a grasp it cannot reach and fails with 8 failed calls, the fine-tuned planner hands the cup from one arm to the other and drops it in the bin with no failed calls"></video>
+                    </div>
+                    <figcaption class="fig-row">The same held-out task at 4x speed: the stock model (left) keeps retrying a grasp, the fine-tuned one hands the cup across.<button class="btn btn--line btn--small" type="button" data-loop-toggle>Pause</button></figcaption>
+                </figure>
+                <div class="wide-below">
+                    <div class="wide-text">
+                        <h3>Planner Post-Training: SFT, DAgger and GRPO for a 3B VLM</h3>
+                        <p>Fine-tuned the humanoid&rsquo;s Qwen2.5-VL-3B planner on a 6 GB laptop GPU, from 23 to 92 solved tasks out of 100 held out.</p>
+                        <details>
+                            <summary>Read the full write-up</summary>
+                            <div class="more">
+                                <p>Post-training of the <strong>vision-language planner from One Brain, Many Bodies</strong>: a 3B model reads a camera frame with numbered markers and calls grasp, place and done tools to carry out table-top commands on the Unitree G1. I built a benchmark of six task families (bin, two objects in the bin, next to, left or right side, absent object, goal already met) where success is read from the physics state, never from what the model says, with every task feasible by a measured reach map. A privileged expert that reads the true state solves 94 of 100 held-out tasks; the stock model solves 23. <strong>QLoRA SFT</strong> (4-bit NF4, rank 16, loss on the answer tokens only) on 2432 expert steps brought it to <strong>83</strong>, and one <strong>DAgger</strong> round, where the planner drives and the expert labels the states it reaches, brought it to <strong>92</strong> with failed tool calls down from 418 to 28 (paired McNemar: 61 to 1, p = 3e-17, and 11 to 2, p = 0.022). <strong>GRPO</strong> with physics rewards then solved exactly the same tasks: 66% of groups had four identical rewards, and the few errors left are rare states that random rollouts barely visit, so on this benchmark the on-policy correction that worked was DAgger. Engineering that changed the numbers: cutting the prompt from 4.5k to 1.3k tokens so training fits in 6 GB, capping the free-text thought so constrained JSON always closes, and finding a stale MuJoCo renderer that blinded the first DAgger collection.</p>
+                                <p class="tools">Built with PyTorch, Hugging Face Transformers, PEFT, QLoRA, bitsandbytes, constrained JSON decoding, DAgger, GRPO, MuJoCo, Qwen2.5-VL and Python.</p>
+                            </div>
+                        </details>
+                        <p class="links"><a class="link" href="https://github.com/NishanthSundaran/one-brain-many-bodies/tree/main/posttrain" target="_blank" rel="noopener">View on GitHub</a></p>
+                    </div>
+                    <dl class="figs figs--stack">
+                        <div><dt>Stock Qwen2.5-VL-3B</dt><dd class="num">23<span class="u">&#8201;/ 100</span></dd></div>
+                        <div><dt>SFT + DAgger, trained here</dt><dd class="num">92<span class="u">&#8201;/ 100</span></dd></div>
+                        <div><dt>Privileged expert, the ceiling</dt><dd class="num">94<span class="u">&#8201;/ 100</span></dd></div>
+                    </dl>
+                </div>
+            </article>
+
             <article class="project-card t-6">
                 <figure class="media-fig" data-loop>
                     <div class="media media--wide">
