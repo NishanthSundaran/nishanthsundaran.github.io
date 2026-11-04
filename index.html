@@ -156,7 +156,7 @@
     <div class="container">
         <div class="head">
             <h2>Projects</h2>
-            <p class="lead">Humanoids, robot learning and safe manipulation, in simulation and on real hardware.</p>
+            <p class="lead">Humanoids, robot learning, model post-training and edge deployment, in simulation and on real hardware.</p>
         </div>
 
         <div class="bento">
@@ -236,6 +236,34 @@
                         <div><dt>Stock Qwen2.5-VL-3B</dt><dd class="num">23<span class="u">&#8201;/ 100</span></dd></div>
                         <div><dt>SFT + DAgger, trained here</dt><dd class="num">92<span class="u">&#8201;/ 100</span></dd></div>
                         <div><dt>Privileged expert, the ceiling</dt><dd class="num">94<span class="u">&#8201;/ 100</span></dd></div>
+                    </dl>
+                </div>
+            </article>
+
+            <article class="project-card t-wide">
+                <figure class="media-fig" data-loop>
+                    <div class="media media--inspect">
+                    <video src="images/edge_inspection.mp4" poster="images/posters/edge_inspection.jpg" loop muted playsinline preload="metadata" width="1500" height="456" aria-label="Real HTTP calls to the inspection service on a laptop CPU, a good part and a defective part per category side by side, each with the heatmap the service returned and its verdict: bottle, capsule, toothbrush, hazelnut, screw, leather, metal nut and transistor; the last defect, a missing transistor, is passed as OK"></video>
+                    </div>
+                    <figcaption class="fig-row">Real calls to the service on a laptop CPU, a good part and a defect per category. The last one, a missing transistor, is a miss.<button class="btn btn--line btn--small" type="button" data-loop-toggle>Pause</button></figcaption>
+                </figure>
+                <div class="wide-below">
+                    <div class="wide-text">
+                        <h3>Edge Inspection: Anomaly Detection from Benchmark to CPU Service</h3>
+                        <p>PatchCore on MVTec AD within 0.2 points of the published accuracy, then served in INT8 from Docker at 94 ms per part on a laptop CPU.</p>
+                        <details>
+                            <summary>Read the full write-up</summary>
+                            <div class="more">
+                                <p>Industrial visual inspection on all 15 <strong>MVTec AD</strong> categories, learned from good parts only. I compared <strong>PatchCore, PaDiM, EfficientAD and zero-shot WinCLIP</strong> with my own metric code, after finding that anomalib by default tunes its thresholds on the test set. PatchCore reaches <strong>98.8 image AUROC and 93.0 AUPRO</strong> (paper 99.0 / 93.5); an inspection region that scores the part and not the background fixed toothbrush, where a loose bristle on the backdrop had dropped it to 91.7 (now 100). I benchmarked eleven runtimes on the full test set: TensorRT fp16 runs in <strong>5.2 ms</strong> with no accuracy loss, after I found ONNX Runtime silently falling back to the CPU because two CUDA libraries were missing. Naive INT8 took capsule from 97 to 64: the memory bank held FP32 features while the quantised backbone produced slightly different ones, and rebuilding the bank from INT8 features brought it back to 97 at 61 ms. A label-free gate decides per category whether INT8 ships (screw stays FP32). Thresholds set on training images flagged 47% of good leather, because the test parts come from another capture session; calibrating on a few good parts from the line cuts that to 3%, so the service has a calibrate endpoint and a drift monitor. The service is FastAPI with no torch inside, Prometheus metrics, and GitHub Actions CI that builds the Docker image and sends it a real request.</p>
+                                <p class="tools">Built with PyTorch, anomalib, ONNX, ONNX Runtime, TensorRT, OpenVINO, NNCF INT8 quantisation, FastAPI, Docker, Prometheus, GitHub Actions and Python.</p>
+                            </div>
+                        </details>
+                        <p class="links"><a class="link" href="https://github.com/NishanthSundaran/edge-inspection" target="_blank" rel="noopener">View on GitHub</a></p>
+                    </div>
+                    <dl class="figs figs--stack">
+                        <div><dt>PatchCore image AUROC, 15 categories</dt><dd class="num">98.8</dd></div>
+                        <div><dt>INT8 service on a laptop CPU</dt><dd class="num">94<span class="u">&#8201;ms</span></dd></div>
+                        <div><dt>TensorRT fp16 on the laptop GPU</dt><dd class="num">5.2<span class="u">&#8201;ms</span></dd></div>
                     </dl>
                 </div>
             </article>
