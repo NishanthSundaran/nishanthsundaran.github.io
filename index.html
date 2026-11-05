@@ -268,6 +268,34 @@
                 </div>
             </article>
 
+            <article class="project-card t-wide">
+                <figure class="media-fig" data-loop>
+                    <div class="media media--copilot">
+                    <video src="images/robot_ops_copilot.mp4" poster="images/posters/robot_ops_copilot.jpg" loop muted playsinline preload="metadata" width="1300" height="470" aria-label="Four questions typed into the copilot's page in one take: a German question about the arm's mounting bolts, answered with the manual page; error code C740A38, explained with the fix steps from the error code directory; the mean peak force over the successful thesis trials, answered by an SQL query; and the IP rating of a KUKA robot, which it refuses. The time the model spends generating is shown at four times speed and labelled"></video>
+                    </div>
+                    <figcaption class="fig-row">Four questions in one take: German manual, error code, an SQL answer from my trial logs, and another robot it refuses. Model time shown at 4x.<button class="btn btn--line btn--small" type="button" data-loop-toggle>Pause</button></figcaption>
+                </figure>
+                <div class="wide-below">
+                    <div class="wide-text">
+                        <h3>Robot Ops Copilot: Local Agentic RAG for a UR3e Cell</h3>
+                        <p>A bilingual support copilot over the UR3e manuals, error codes, ROS 2 docs and my thesis logs, running on one laptop GPU. Every answer cites its page, or it says it does not know.</p>
+                        <details>
+                            <summary>Read the full write-up</summary>
+                            <div class="more">
+                                <p>The copilot answers from the <strong>UR3e user manual in English and German</strong>, the UR Error Codes Directory (parsed into 1222 codes), the <strong>ROS 2, MoveIt 2 and UR driver docs</strong>, and the config files and 38 logged trials of my thesis. Retrieval is <strong>BM25 plus bge-m3 embeddings, fused and reranked</strong> by a multilingual cross-encoder on the CPU (right page in the top five for 99% of questions). <strong>qwen2.5:7b</strong> answers from numbered passages and can call four tools: document search, exact error code lookup, read-only SQL over the trial logs, and parameter lookup. I wrote 133 questions plus a held-out set of 49 that was never used to choose anything, graded by fact matching with no LLM judge. Five rounds of reading every failure took it from <strong>66% to 96%</strong>, 92% on held-out. Each fix came from a real failure: the model copied example answers from its prompt, offering tools up front made it refuse questions its passages answered (so tools now come only after a refusal), it read a range written in brackets in the driver docs as a citation, and it answered questions about other robots with UR3e values. A guard drops any citation the model was not given. Plain RAG without tools reaches 82%, since it cannot run SQL over the trials. Every request goes to an audit log with the passages the model saw, so an answer can be traced to its page.</p>
+                                <p class="tools">Built with Ollama, qwen2.5, bge-m3, sentence-transformers cross-encoders, rank-bm25, PyMuPDF, SQLite, FastAPI, pytest, GitHub Actions and Python.</p>
+                            </div>
+                        </details>
+                        <p class="links"><a class="link" href="https://github.com/NishanthSundaran/robot-ops-copilot" target="_blank" rel="noopener">View on GitHub</a></p>
+                    </div>
+                    <dl class="figs figs--stack">
+                        <div><dt>Answer accuracy, 133 questions</dt><dd class="num">96<span class="u">&#8201;%</span></dd></div>
+                        <div><dt>Held-out set, 49 questions</dt><dd class="num">92<span class="u">&#8201;%</span></dd></div>
+                        <div><dt>Right page in the top five</dt><dd class="num">99<span class="u">&#8201;%</span></dd></div>
+                    </dl>
+                </div>
+            </article>
+
             <article class="project-card t-6">
                 <figure class="media-fig" data-loop>
                     <div class="media media--wide">
