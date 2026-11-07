@@ -15,6 +15,7 @@
 /* Hallmark · added 2026-11-01: LIBERO card, a t-wide variant (3:1 comparison video full width, text 7fr, figures stacked 5fr) so it does not repeat the G1 lead's split; Pause moved into the caption row so it never covers a policy */
 /* Hallmark · added 2026-11-03: planner post-training card, the same t-wide variant with a 2.8:1 two-planner video (media--pair) */
 /* Hallmark · added 2026-11-04: edge inspection card, the same t-wide variant with a 3.3:1 good-vs-defect service video (media--inspect) */
+/* Hallmark · added 2026-11-07: rigidax card, the same t-wide variant with a 5.3:1 strip of eight retargeted clips (media--retarget) */
 /* Hallmark · added 2026-11-05: robot ops copilot card, the same t-wide variant with a 2.8:1 recording of the service page (media--copilot) */
 @import url("./tokens.css");
 @import url("./base.css");
@@ -128,6 +129,7 @@ html:not(.js) [data-loop-toggle] { display: none; }
 .media--pair { aspect-ratio: 1126 / 400; }
 .media--inspect { aspect-ratio: 1500 / 456; }
 .media--copilot { aspect-ratio: 1300 / 470; }
+.media--retarget { aspect-ratio: 1920 / 360; }
 .t-wide { grid-column: span 12; }
 .fig-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); }
 .wide-below { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-xl); align-items: start; margin-top: var(--space-sm); }

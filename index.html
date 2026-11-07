@@ -186,6 +186,34 @@
 
             <article class="project-card t-wide">
                 <figure class="media-fig" data-loop>
+                    <div class="media media--retarget">
+                    <video src="images/rigidax_lafan1.mp4" poster="images/posters/rigidax_lafan1.jpg" loop muted playsinline preload="metadata" width="1920" height="360" aria-label="Eight LAFAN1 human motion capture clips retargeted onto a Unitree G1 with Dex3 hands, side by side: two dances, a fight with kicks, jumps, a run, a sprint, a walk, and a fall and get-up; the feet stay planted and the hands close into fists during the fight"></video>
+                    </div>
+                    <figcaption class="fig-row">Eight LAFAN1 mocap clips on a G1 with Dex3 hands. The fingers are inferred, since the mocap has none: fists in the fight, flat on the floor.<button class="btn btn--line btn--small" type="button" data-loop-toggle>Pause</button></figcaption>
+                </figure>
+                <div class="wide-below">
+                    <div class="wide-text">
+                        <h3>rigidax: Differentiable Rigid-Body Dynamics and Motion Retargeting in JAX</h3>
+                        <p>An open-source JAX library, released on PyPI, that retargets human motion capture onto the Unitree G1 at about 20,000 frames per second on a laptop CPU.</p>
+                        <details>
+                            <summary>Read the full write-up</summary>
+                            <div class="more">
+                                <p>Its design starts from <strong>frax (Stanford ASL)</strong>: the dense, loop-free formulation of the dynamics over a DOF ancestor mask. rigidax fills in what frax lacks: it loads <strong>MJCF and URDF</strong> through MuJoCo, supports ball joints and several joints per body, makes gravity a model parameter, and keeps masses, inertias and offsets as pytree leaves, so <strong>jax.grad and vmap work over the physical parameters</strong> without recompiling. Every quantity is tested against MuJoCo on random trees and the G1, A2 and Panda, plus Pinocchio. On top of it sits a batched IK retargeter for LAFAN1. Both libraries ran frax&rsquo;s own LAFAN1 settings on the same laptop, on 8 clips (53,621 frames, 30 minutes of motion), scored with the same metrics: with self-collision rigidax runs at <strong>22,836 frames/s against 18,327</strong>, the toe slides <strong>0.9 cm/s median against 4.6</strong> while the human toe is planted, frames with a joint jump over 20&deg; fall from 1.9% to 0.1%, and the lag goes from 0.16 frames to zero. frax is still slightly ahead on forearm twist and on leg motion kept. The G1 wears Dex3 hands, and since LAFAN1 records no fingers the grip is inferred from context and written after the body solve, so the hands cost almost nothing (18.8k frames/s). An operational space controller on the Panda, with all its dynamics from rigidax, tracks a figure-eight at 0.9 mm mean error in about 54 &micro;s per step.</p>
+                                <p class="tools">Built with JAX, MuJoCo, Pinocchio, NumPy, pytest, GitHub Actions, PyPI trusted publishing and Python.</p>
+                            </div>
+                        </details>
+                        <p class="links"><a class="link" href="https://github.com/NishanthSundaran/Rigidax" target="_blank" rel="noopener">View on GitHub</a> &nbsp; <a class="link" href="https://pypi.org/project/rigidax/" target="_blank" rel="noopener">View on PyPI</a></p>
+                    </div>
+                    <dl class="figs figs--stack">
+                        <div><dt>Retargeting speed, laptop CPU</dt><dd class="num">22.8k<span class="u">&#8201;frames/s</span></dd></div>
+                        <div><dt>Toe slide, median (frax 4.6)</dt><dd class="num">0.9<span class="u">&#8201;cm/s</span></dd></div>
+                        <div><dt>Frames with a 20&deg; jump (frax 1.9)</dt><dd class="num">0.1<span class="u">&#8201;%</span></dd></div>
+                    </dl>
+                </div>
+            </article>
+
+            <article class="project-card t-wide">
+                <figure class="media-fig" data-loop>
                     <div class="media media--triple">
                     <video src="images/libero_three_policies.mp4" poster="images/posters/libero_three_policies.jpg" loop muted playsinline preload="metadata" width="1152" height="384" aria-label="The same held-out LIBERO episode run by three policies side by side, SmolVLA, ACT and Diffusion Policy; each robot picks up the tomato sauce can and places it in the basket"></video>
                     </div>
